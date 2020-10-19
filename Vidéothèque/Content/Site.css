@@ -1,12 +1,123 @@
 ﻿body {
-    padding-top: 50px;
+    margin-top: 50px;
     padding-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-left: 250px;
+}
+
+.navbar a{
+    color: white;
+}
+
+.navbar .search-container {
+    position: absolute;
+    display: inline;
+    margin-left: 50px;
+}
+
+.navbar input[type=text] {
+    padding: 2px 2px 2px 14px;
+    margin-top: 10px;
+    border: none;
+    width: 1000px;
+    border-radius: 15px;
+}
+
+.navbar .search-container button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    border: none;
+    color: #fff;
+    background-color: #222;
+}
+
+.navbar .search-container button:hover {
+    background: #ccc;
+    border-radius: 20px;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 95%;
+    width: 15%;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    left: 0;
+    background: linear-gradient(black, #284E81);
+    overflow-x: hidden;
+    padding-top: 20px;
+    
+}
+
+/* Style the sidenav links */
+.sidenav a {
+    padding: 6px 8px 6px 60px;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    text-align: left;
+}
+
+.sidenav .active {
+    color: #E1C161;
+}
+
+/* On mouse-over */
+.sidenav a:hover {
+    color: #E1C161;
+}
+
+
+.sidenav #CategorySubMenu {
+    overflow: auto;
+    height: 300px;
+}
+
+/* Dropdown container li style */
+.sidenav #CategorySubMenu  li{
+    font-size: 12px;
+    padding-left: 15px;
+}
+
+/* Optional: Style the caret down icon */
+.sidenav .fa-caret-down {
+    padding-left: 15px;
+}
+
+.sidenav #menuLeft2 {
+    position: fixed;
+    bottom: 60px;
+    left: 60px;
+    color: #fff;
+}
+
+.sidenav #menuLeft2 h5{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.sidenav #menuLeft2 h5 i{
+    padding-right: 5px;
+}
+
+.sidenav #social {
+    position: fixed;
+    bottom: 20px;
+}
+.sidenav #social span {
+    padding: 6px;
+    background-color: #E1C161;
+    border-radius: 18px;
+    margin-left: 15px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -21,4 +132,30 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#filter {
+    margin: 10px 20px 30px 20px;
+    padding: 5px;
+    background-color: #303643;
+    border-radius: 15px;
+    height: 35px;
+    position: fixed;
+}
+
+#filter .form-check-label {
+    color: black;
+    background-color: rgba(89, 137, 207, 70);
+    border-radius: 15px;
+    padding: 2px 0px 2px 15px;
+}
+
+#filter .form-group .fa-caret-down {
+    margin-left: 10px;
+    padding-right: 15px;
+}
+
+
+#list_film {
+    margin-top: 70px;
 }
