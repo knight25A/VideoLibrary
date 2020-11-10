@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Vidéothèque.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+<button class="btn btn-default">@Html.ActionLink("+ Add Movie", "movieForm", "Movies")</button>
+<br />
+@if (!Model.Any())
+{
+    <p>We don't have any movies yet.</p>
+}
+else
+{
+
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Genre</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+            <tr>
+                <td>@Html.ActionLink(movie.Title, "Details", "Movies", new { id = movie.Id }, null)</td>
+                <td>@movie.MovieGenre.Name</td>
+                <td>@Html.ActionLink("Edit", "Edit", "Movies", new { id = movie.Id }, null)</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

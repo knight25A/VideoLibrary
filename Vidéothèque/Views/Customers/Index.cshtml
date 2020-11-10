@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Vidéothèque.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+<button class="btn btn-default">@Html.ActionLink("+ Add Customer", "customerForm", "Customers")</button>
+<br />
+
+@if (!Model.Any())
+{
+    <p>We don't have any customers yet.</p>
+}
+else
+{
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Membership Type</th>
+                <th>Discount Rate</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>
+                    <td>@customer.Membership.Name</td>
+                    <td>@customer.Membership.DiscountRate %</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Customers", new { id = customer.Id }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
