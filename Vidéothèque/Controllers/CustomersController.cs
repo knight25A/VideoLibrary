@@ -37,9 +37,10 @@ namespace Vidéothèque.Controllers
         public ActionResult Index()
         {
 
-            var customers = _context.Customers.Include(c => c.Membership).ToList();
+            //var customers = _context.Customers.Include(c => c.Membership).ToList();
 
-            return View(customers);
+            //return View(customers);
+            return View();
         }
 
         public ActionResult Details(int id)
@@ -73,14 +74,26 @@ namespace Vidéothèque.Controllers
 
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
             };
             return View("CustomerForm", viewModel);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
             
             if (customer.Id == 0) //the customer does not exist on the DB which means it's a new Customer
                 _context.Customers.Add(customer);

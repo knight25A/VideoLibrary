@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace Vidéothèque.Models
 {
@@ -17,7 +18,7 @@ namespace Vidéothèque.Models
         [Required]
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
-        public object Genre { get; internal set; }
+        //public object Genre { get; internal set; }
         [Column(TypeName = "datetime2")]
         public DateTime DateAdded { get; set; }
         [Column(TypeName = "datetime2")]
@@ -25,7 +26,9 @@ namespace Vidéothèque.Models
         public DateTime ReleaseDate { get; set; }
 
         [Display(Name = "Number in Stock")]
-        public byte NumberInStock { get; set; }
+        [Range(1, 150)]
+        [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")]        //[CheckIfIntegerFormField]
+        public int NumberInStock { get; set; }
 
     }
 }

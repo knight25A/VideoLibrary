@@ -10,7 +10,7 @@ namespace Vidéothèque.Models
     {
 
         public int Id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter customer's name!")]
         [StringLength(25)]
         public string Name { get; set; }
         [Required]
@@ -21,6 +21,6 @@ namespace Vidéothèque.Models
 
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
-        public object MembershipType { get; internal set; }
+        //public object MembershipType { get; internal set; }
     }
 }

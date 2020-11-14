@@ -56,8 +56,9 @@ namespace Vidéothèque.Controllers
         public ActionResult Index()
         {
 
-            var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
-            return View(movies);
+            //var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
+            //return View(movies);
+            return View();
 
         }
 
@@ -108,7 +109,10 @@ namespace Vidéothèque.Controllers
         {
 
             if (movie.Id == 0) //the customer does not exist on the DB which means it's a new Customer
+            {
+                movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
+            }
             else
             {
                 var movieInDb = _context.Movies.Include(m => m.MovieGenre).Single(c => c.Id == movie.Id);
@@ -116,7 +120,7 @@ namespace Vidéothèque.Controllers
                 //AutoMapper
                 // Mapper.Map(customer, customerInDb);
                 movieInDb.Title = movie.Title;
-                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.NumberInStock = (int)movie.NumberInStock;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.DateAdded = movie.DateAdded;
                 movieInDb.GenreId = movie.GenreId;
