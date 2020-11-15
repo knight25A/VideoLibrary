@@ -10,6 +10,8 @@ using System.Data.Entity;
 
 namespace Vidéothèque.Controllers
 {
+    [Authorize(Roles = RoleName.Admin)]
+
     public class CustomersController : Controller
     {
         // GET: Customers

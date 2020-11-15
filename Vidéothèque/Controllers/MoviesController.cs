@@ -11,6 +11,8 @@ using System.Data.Entity.Validation;
 
 namespace Vidéothèque.Controllers
 {
+    [Authorize(Roles = RoleName.Admin)]
+
     public class MoviesController : Controller
     {
         // GET: Movies
@@ -53,6 +55,7 @@ namespace Vidéothèque.Controllers
             return View(viewModel);
         }
        
+        //[AllowAnonymous]
         public ActionResult Index()
         {
 

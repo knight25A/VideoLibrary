@@ -152,3 +152,5 @@ C:\Users\tblac\Source\Repos\VideoLibrary2\Vidéothèque\bin\System.Web.Http.WebH
 C:\Users\tblac\Source\Repos\VideoLibrary2\Vidéothèque\obj\Debug\Vidéothèque.Migrations.fixBugObjectMovieCustomer.resources
 C:\Users\tblac\Source\Repos\VideoLibrary2\Vidéothèque\bin\AutoMapper.dll
 C:\Users\tblac\Source\Repos\VideoLibrary2\Vidéothèque\bin\AutoMapper.xml
+C:\Users\tblac\Source\Repos\VideoLibrary2\Vidéothèque\obj\Debug\Vidéothèque.Migrations.PopulateUsers.resources
+C:\Users\tblac\Source\Repos\VideoLibrary2\Vidéothèque\obj\Debug\Vidéothèque.Migrations.PopulateUsers1.resources

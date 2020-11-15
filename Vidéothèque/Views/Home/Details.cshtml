@@ -1,0 +1,13 @@
+﻿@model Vidéothèque.Models.Movie
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movie Details</h2>
+
+@Model.Title
+<br />
+@Model.MovieGenre.Name
+<br />
+@Model.ReleaseDate
