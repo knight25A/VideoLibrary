@@ -100,12 +100,16 @@
     color: #fff;
 }
 
-.sidenav #menuLeft2 h5{
+.sidenav #menuLeft2 h5 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
 }
 
-.sidenav #menuLeft2 h5 i{
+.sidenav #menuLeft2 a {
+    padding:inherit;
+}
+
+.sidenav #menuLeft2 h5 i {
     padding-right: 5px;
 }
 
