@@ -9,7 +9,7 @@ namespace Vidéothèque.Migrations
         {
             AddColumn("dbo.Movies", "GenreId", c => c.Byte(nullable: false));
             CreateIndex("dbo.Movies", "GenreId");
-            AddForeignKey("dbo.Movies", "GenreId", "dbo.Genres", "Id", cascadeDelete: true);
+            //AddForeignKey("dbo.Movies", "GenreId", "dbo.Genres", "Id", cascadeDelete: true);
             DropColumn("dbo.Movies", "Genre");
         }
         

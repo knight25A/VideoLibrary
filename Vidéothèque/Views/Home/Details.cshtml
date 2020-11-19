@@ -4,10 +4,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movie Details</h2>
+<div class="container">
+    <img  width="1200" height="200"/>
 
-@Model.Title
-<br />
-@Model.MovieGenre.Name
-<br />
-@Model.ReleaseDate
+    <div class="col-md-3 text-center">
+        <img src="" />
+        <button class="warning">RENT</button>
+    </div>
+    <div id="movie_details" class="col-md-9">
+        <div class="col-md-4"><h4>@Model.Title</h4></div>
+        <div class="col-md-4"><h5>3h02</h5></div>
+        <div class="col-md-4"><h5>@Model.ReleaseDate.Day/@Model.ReleaseDate.Month/@Model.ReleaseDate.Year</h5></div>
+        <h5>@Model.MovieGenre.Name</h5> <br />
+        <h5>Director: </h5>
+        <h5>Actors: </h5>
+        <br />
+        <h5>Synopsis: </h5>
+        <p></p>
+    </div>
+    
+
+</div>
