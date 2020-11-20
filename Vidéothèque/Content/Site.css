@@ -1,5 +1,4 @@
 ﻿body {
-    
     padding-bottom: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -9,7 +8,7 @@
     padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-left: 250px;
+    margin-left: 200px;
     margin-top: 70px;
 }
 
@@ -148,7 +147,7 @@ textarea {
 }
 
 #filter {
-    margin: 10px 20px 30px 20px;
+    margin: 10px 20px 30px 70px;
     padding: 5px;
     background-color: #303643;
     border-radius: 15px;
@@ -166,6 +165,25 @@ textarea {
 #filter .form-group .fa-caret-down {
     margin-left: 10px;
     padding-right: 15px;
+}
+
+main {
+    margin-top: 70px;
+}
+
+#cover_movie {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2%;
+}
+#poster_movie {
+    width: 80%;
+    height: auto;
+    margin: 2%;
+}
+
+#qt_input_rent {
+    width: 20%;
 }
 
 #movie_details {

@@ -14,23 +14,8 @@
 </head>
 <body>
     @Html.Partial("_NavBar")
-    <div class="sidenav">
-        @RenderSection("LeftMenu", required: false)
-        <div id="menuLeft2">
-            <hr />
-            <h5><i class="fa fa-sliders" style="font-size:20px;color:black"></i> Preferences</h5>
-            <h5><i class="fa fa-cog" style="font-size:20px;color:black"></i> Settings</h5>
-            <h5><a href="@Url.Action("About", "Home")"><i class="fa fa-question-circle" style="font-size:20px;color:black"></i> About us</a></h5>
-            <h5><a href="@Url.Action("Contact", "Home")"><i class="fa fa-envelope" style="font-size:20px;color:black"></i> Contact</a></h5>
-        </div>
-        <div id="social">
-            <span><i class="fab fa-facebook-f" style="font-size:18px;color:black"></i></span>
-            <span><i class="fab fa-twitter" style="font-size:18px;color:black"></i></span>
-            <span><i class="fab fa-instagram" style="font-size:18px;color:black"></i></span>
-            <span><i class="fab fa-linkedin-in" style="font-size:18px;color:black"></i></span>
-        </div>
-    </div>
-    <div class="container body-content">
+    @Html.Partial("_Sidenav")
+    <div class="body-content">
         @RenderBody()
         <hr />
         <footer>

@@ -4,24 +4,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section LeftMenu{
+    <h5>@Html.ActionLink("HOME", "Index", "Home", new { @class = "active" })</h5>
+    <h5>@Html.ActionLink("NEW", "Index", "New")</h5>
+    <h5>
+        <a href="#CategorySubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            CATEGORY <i class="fa fa-caret-down"></i>
+        </a>
+    </h5>
+    <ul class="collapse list-unstyled" id="CategorySubMenu">
+        <li>@Html.ActionLink("Action", "Index", "")</li>
+        <li>@Html.ActionLink("Adventure", "Index", "")</li>
+        <li>@Html.ActionLink("Biopic", "Index", "")</li>
+        <li>@Html.ActionLink("Cartoon", "Index", "")</li>
+        <li>@Html.ActionLink("Crime", "Index", "")</li>
+        <li>@Html.ActionLink("Disaster", "Index", "")</li>
+        <li>@Html.ActionLink("Documentary", "Index", "")</li>
+        <li>@Html.ActionLink("Drama", "Index", "")</li>
+        <li>@Html.ActionLink("Family", "Index", "")</li>
+        <li>@Html.ActionLink("Fantasy", "Index", "")</li>
+        <li>@Html.ActionLink("Horror", "Index", "")</li>
+        <li>@Html.ActionLink("Musical", "Index", "")</li>
+        <li>@Html.ActionLink("Romance", "Index", "")</li>
+        <li>@Html.ActionLink("Science fiction", "Index", "")</li>
+        <li>@Html.ActionLink("Thriller", "Index", "")</li>
+        <li>@Html.ActionLink("War", "Index", "")</li>
+        <li>@Html.ActionLink("Western", "Index", "")</li>
+    </ul>
+}
+
 <div class="container">
-    <img  width="1200" height="200"/>
+    <img id="cover_movie" width="1000" height="200" />
 
     <div class="col-md-3 text-center">
-        <img src="" />
+        <img id="poster_movie" width="250" height="300" />
+        <label>Quantity : <input id="qt_input_rent" type="number" value="1" min="1" max="@Model.NumberInStock" /></label>
         <button class="warning">RENT</button>
     </div>
     <div id="movie_details" class="col-md-9">
         <div class="col-md-4"><h4>@Model.Title</h4></div>
         <div class="col-md-4"><h5>3h02</h5></div>
         <div class="col-md-4"><h5>@Model.ReleaseDate.Day/@Model.ReleaseDate.Month/@Model.ReleaseDate.Year</h5></div>
+
         <h5>@Model.MovieGenre.Name</h5> <br />
         <h5>Director: </h5>
         <h5>Actors: </h5>
         <br />
-        <h5>Synopsis: </h5>
-        <p></p>
+        <h5>Synopsis:</h5>
+        <p>
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero
+            sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+        </p>
     </div>
-    
+
 
 </div>

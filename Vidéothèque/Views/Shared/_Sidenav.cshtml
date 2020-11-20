@@ -1,0 +1,53 @@
+﻿<div class="sidenav">
+    <h5>@Html.ActionLink("HOME", "Index", "Home", new { @class = "active" })</h5>
+    <h5>@Html.ActionLink("NEW", "Index", "New")</h5>
+
+    @if (User.IsInRole("CanManageEverything"))
+    {
+        <h5>@Html.ActionLink("CUSTOMERS", "Index", "Customers")</h5>
+        <h5>@Html.ActionLink("MOVIES", "Index", "Movies")</h5>
+    }
+    @if (Request.IsAuthenticated && !User.IsInRole("CanManageEverything"))
+    {
+        <h5>@Html.ActionLink("MY LIST","", "Customers")</h5>
+        <h5>@Html.ActionLink("MY HISTORY", "", "Customers")</h5>
+    }
+    <h5>
+        <a href="#CategorySubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            CATEGORY <i class="fa fa-caret-down"></i>
+        </a>
+    </h5>
+    <ul class="collapse list-unstyled" id="CategorySubMenu">
+        <li>@Html.ActionLink("Action", "Index", "")</li>
+        <li>@Html.ActionLink("Adventure", "Index", "")</li>
+        <li>@Html.ActionLink("Biopic", "Index", "")</li>
+        <li>@Html.ActionLink("Cartoon", "Index", "")</li>
+        <li>@Html.ActionLink("Crime", "Index", "")</li>
+        <li>@Html.ActionLink("Disaster", "Index", "")</li>
+        <li>@Html.ActionLink("Documentary", "Index", "")</li>
+        <li>@Html.ActionLink("Drama", "Index", "")</li>
+        <li>@Html.ActionLink("Family", "Index", "")</li>
+        <li>@Html.ActionLink("Fantasy", "Index", "")</li>
+        <li>@Html.ActionLink("Horror", "Index", "")</li>
+        <li>@Html.ActionLink("Musical", "Index", "")</li>
+        <li>@Html.ActionLink("Romance", "Index", "")</li>
+        <li>@Html.ActionLink("Science fiction", "Index", "")</li>
+        <li>@Html.ActionLink("Thriller", "Index", "")</li>
+        <li>@Html.ActionLink("War", "Index", "")</li>
+        <li>@Html.ActionLink("Western", "Index", "")</li>
+    </ul>
+
+    <div id="menuLeft2">
+        <hr />
+        <h5><i class="fa fa-sliders" style="font-size:20px;color:black"></i> Preferences</h5>
+        <h5><i class="fa fa-cog" style="font-size:20px;color:black"></i> Settings</h5>
+        <h5><a href="@Url.Action("About", "Home")"><i class="fa fa-question-circle" style="font-size:20px;color:black"></i> About us</a></h5>
+        <h5><a href="@Url.Action("Contact", "Home")"><i class="fa fa-envelope" style="font-size:20px;color:black"></i> Contact</a></h5>
+    </div>
+    <div id="social">
+        <span><i class="fab fa-facebook-f" style="font-size:18px;color:black"></i></span>
+        <span><i class="fab fa-twitter" style="font-size:18px;color:black"></i></span>
+        <span><i class="fab fa-instagram" style="font-size:18px;color:black"></i></span>
+        <span><i class="fab fa-linkedin-in" style="font-size:18px;color:black"></i></span>
+    </div>
+</div>
