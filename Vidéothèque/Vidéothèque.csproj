@@ -319,6 +319,14 @@
     <Compile Include="Migrations\202011211345464_changeAccountViewModels.Designer.cs">
       <DependentUpon>202011211345464_changeAccountViewModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011211431401_changeIdentityModels.cs" />
+    <Compile Include="Migrations\202011211431401_changeIdentityModels.Designer.cs">
+      <DependentUpon>202011211431401_changeIdentityModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011211437437_changeIdentityModels1.cs" />
+    <Compile Include="Migrations\202011211437437_changeIdentityModels1.Designer.cs">
+      <DependentUpon>202011211437437_changeIdentityModels1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -688,6 +696,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011211345464_changeAccountViewModels.resx">
       <DependentUpon>202011211345464_changeAccountViewModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211431401_changeIdentityModels.resx">
+      <DependentUpon>202011211431401_changeIdentityModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211437437_changeIdentityModels1.resx">
+      <DependentUpon>202011211437437_changeIdentityModels1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

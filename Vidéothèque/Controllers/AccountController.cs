@@ -152,7 +152,7 @@ namespace Vidéothèque.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Pseudo, Name = model.Name, Email = model.Email, Age = model.Age};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
