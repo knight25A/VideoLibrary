@@ -274,6 +274,7 @@ D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéot
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\bin\fr\Microsoft.AspNet.Identity.Core.resources.dll
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\bin\fr\Microsoft.AspNet.Identity.Owin.resources.dll
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\bin\fr\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.csprojAssemblyReference.cache
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.Migrations.firstCommit.resources
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.Migrations.firstCommit1.resources
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.Migrations.firstCommit2.resources

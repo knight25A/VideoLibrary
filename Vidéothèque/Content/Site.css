@@ -171,6 +171,31 @@ main {
     margin-top: 70px;
 }
 
+#loginForm {
+    margin-top: 5%;
+    margin-left: 25%;
+    padding: 1%;
+    background: linear-gradient(#587EB1, #2C3F59);
+    border-radius: 15px;
+    width: 50%;
+}
+#loginForm input {
+    border-radius: 30px;
+}
+#loginForm label {
+    font-weight: bold;
+}
+#loginForm a{
+    color: #E1C161;
+    font-style: italic;
+    font-weight: 600;
+}
+#loginForm #btn_connection input{
+    font-weight: bold;
+    background-color: #E1C161;
+}
+
+
 #cover_movie {
     width: 100%;
     height: auto;
@@ -189,4 +214,11 @@ main {
 #movie_details {
     background: linear-gradient(#093676,#051B3B);
     color: white;
+}
+
+
+
+footer {
+    position: fixed;
+    bottom: 0;
 }
