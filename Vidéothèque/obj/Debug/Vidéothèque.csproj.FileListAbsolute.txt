@@ -310,3 +310,4 @@ D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéot
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.csproj.CopyComplete
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.dll
 D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.pdb
+D:\Documents\etudes\master\M2\dotNet\projet\Nouveau dossier\VideoLibrary\Vidéothèque\obj\Debug\Vidéothèque.Migrations.changeAccountViewModels.resources
