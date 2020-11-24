@@ -35,5 +35,9 @@ namespace Vidéothèque.Models
         public string ImagePath { get; set; }
 
 
+        [Required]
+        [Display(Name = "Price")]
+        public float Price { get; set; }
+
     }
 }

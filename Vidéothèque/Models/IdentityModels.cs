@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -9,8 +10,10 @@ namespace Vidéothèque.Models
     // Vous pouvez ajouter des données de profil pour l'utilisateur en ajoutant d'autres propriétés à votre classe ApplicationUser. Pour en savoir plus, consultez https://go.microsoft.com/fwlink/?LinkID=317594.
     public class ApplicationUser : IdentityUser
     {
-        public string Name { get; internal set; }
-        public string Age { get; internal set; }
+
+        public string Name { get; set; }
+        public string Age { get; set; }
+        public List<Rent> Rents { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -26,8 +29,11 @@ namespace Vidéothèque.Models
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<MembershipType> MembershipTypes { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Rent> Rents { get; set; }
 
         public DbSet<Genre> Genres { get; set; }
+
         public ApplicationDbContext()
             : base("VideothequeDB")
         {

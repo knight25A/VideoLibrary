@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Xml.Linq;
 using Vidéothèque.Models;
 using Vidéothèque.ViewModels;
 using System.Data.Entity;
@@ -168,6 +166,7 @@ namespace Vidéothèque.Controllers
                 // Mapper.Map(customer, customerInDb);
                 movieInDb.Title = movie.Title;
                 movieInDb.NumberInStock = (int)movie.NumberInStock;
+                movieInDb.Price = (int)movie.Price;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.DateAdded = movie.DateAdded;
                 movieInDb.GenreId = movie.GenreId;

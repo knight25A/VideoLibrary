@@ -8,7 +8,7 @@
     padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-left: 200px;
+    margin-left: 240px;
     margin-top: 70px;
 }
 
@@ -147,7 +147,7 @@ textarea {
 }
 
 #filter {
-    margin: 10px 20px 30px 70px;
+    margin: 10px 0px 0px 40px;
     padding: 5px;
     background-color: #303643;
     border-radius: 15px;
@@ -242,7 +242,15 @@ main {
     color: white;
 }
 
-
+#invoice {
+    background-color: rgba(224, 192, 96, 25);
+    width: 60%;
+}
+#img_invoice {
+    width: 100%;
+    height: 250px;
+    margin-left: 2%;
+}
 
 footer {
     position: fixed;
