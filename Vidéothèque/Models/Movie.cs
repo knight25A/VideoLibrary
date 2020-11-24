@@ -19,9 +19,11 @@ namespace Vidéothèque.Models
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
         //public object Genre { get; internal set; }
-        [Column(TypeName = "datetime2")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateAdded { get; set; }
-        [Column(TypeName = "datetime2")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
@@ -29,6 +31,9 @@ namespace Vidéothèque.Models
         [Range(1, 150)]
         [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")]        //[CheckIfIntegerFormField]
         public int NumberInStock { get; set; }
+
+        public string ImagePath { get; set; }
+
 
     }
 }

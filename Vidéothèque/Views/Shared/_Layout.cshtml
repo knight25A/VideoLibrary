@@ -16,11 +16,13 @@
     @Html.Partial("_NavBar")
     @Html.Partial("_Sidenav")
     <div class="body-content">
-        @RenderBody()
-        <!--<hr />
-        <footer class="text-center">
-            <p>&copy; @DateTime.Now.Year - Video Library</p>
-        </footer>-->
+        <div class="container">
+            @RenderBody()
+            <!--<hr />
+            <footer class="text-center">
+                <p>&copy; @DateTime.Now.Year - Video Library</p>
+            </footer>-->
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/lib")

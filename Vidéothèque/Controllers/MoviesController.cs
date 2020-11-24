@@ -8,6 +8,8 @@ using Vidéothèque.Models;
 using Vidéothèque.ViewModels;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.IO;
+using System.Configuration;
 
 namespace Vidéothèque.Controllers
 {
@@ -54,7 +56,7 @@ namespace Vidéothèque.Controllers
 
             return View(viewModel);
         }
-       
+
         //[AllowAnonymous]
         public ActionResult Index()
         {
@@ -64,6 +66,19 @@ namespace Vidéothèque.Controllers
             return View();
 
         }
+
+
+        [HttpPost]
+        public ActionResult Index(string searchName)
+        {
+
+            //var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
+            //return View(movies);
+            //return View();
+            return RedirectToAction("Index", "Home", new { searchName = searchName });
+
+        }
+
 
         [Route("movies/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
@@ -76,6 +91,13 @@ namespace Vidéothèque.Controllers
             var customer = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(cust => cust.Id == id);
 
             return View(customer);
+        }
+
+        [HttpPost]
+        public ActionResult Details(string searchName)
+        {
+            return RedirectToAction("Index", "Home", new { searchName = searchName });
+
         }
 
         public ActionResult Edit(int id)
@@ -108,11 +130,33 @@ namespace Vidéothèque.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(Movie movie)
+        public ActionResult Save(Movie movie, HttpPostedFileBase file)
         {
 
             if (movie.Id == 0) //the customer does not exist on the DB which means it's a new Customer
             {
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    //Use Namespace called :  System.IO  
+                    string FileName = Path.GetFileNameWithoutExtension(file.FileName);
+
+                    //To Get File Extension  
+                    string FileExtension = Path.GetExtension(file.FileName);
+
+                    //Add Current Date To Attached File Name  
+                    FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+
+                    //Get Upload path from Web.Config file AppSettings.  
+                    //string UploadPath = ConfigurationManager.AppSettings["ImagePath"].ToString();
+                    string path = Path.Combine(Server.MapPath("~/Images"), FileName);
+
+                    //Its Create complete path to store in server.  
+                    movie.ImagePath = FileName;
+
+                    //To copy and save file into server.  
+                    file.SaveAs(path);
+                }
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
             }
@@ -134,7 +178,7 @@ namespace Vidéothèque.Controllers
                 _context.SaveChanges();
 
             }
-            catch(DbEntityValidationException e)
+            catch (DbEntityValidationException e)
             {
                 Console.WriteLine(e);
             }

@@ -7,7 +7,7 @@
 <h2>MovieForm</h2>
 
 
-@using (Html.BeginForm("Save", "Movies"))
+@using (Html.BeginForm("Save", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.Title)
@@ -35,6 +35,9 @@
     </div>
 
 
+    <input type="file" name="file" id="file"/>
+    <br>
+ 
     @Html.HiddenFor(m => m.Movie.Id)
     <!--Check that the request is coming from the Customer Form ONLY! Prevent other requests -->
     @Html.AntiForgeryToken()

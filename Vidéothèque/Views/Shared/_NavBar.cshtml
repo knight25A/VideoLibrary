@@ -6,11 +6,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+
             <a href="@Url.Action("Index", "Home")" class="navbar-brand"> <i class="fa fa-film" style="font-size:25px;color:white"></i>  Video Library</a>
+
+
+            @using (Html.BeginForm())
+            {
+                <p>
+                    @Html.TextBox("SearchName")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+
         </div>
-        
-        <div class="navbar-collapse collapse">
-            @Html.Partial("_LoginPartial")
+
+        <!-- The Search form -->
+       
+
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_LoginPartial")
+            </div>
         </div>
     </div>
-</div>
