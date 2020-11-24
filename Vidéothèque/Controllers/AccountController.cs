@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -10,6 +11,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Vidéothèque.Models;
+using Vidéothèque.ViewModels;
 
 namespace Vidéothèque.Controllers
 {
@@ -18,15 +20,18 @@ namespace Vidéothèque.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _context = new ApplicationDbContext();
         }
 
         public ApplicationSignInManager SignInManager
@@ -51,6 +56,29 @@ namespace Vidéothèque.Controllers
             {
                 _userManager = value;
             }
+        }
+
+        public ActionResult MyRents()
+        {
+            var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
+            var rents = _context.Rents.Where(r => r.IdUser == user.Id).ToList();
+
+            List<Movie> movies = new List<Movie> { };
+            foreach(var rent in rents)
+            {
+                var invoice = _context.Invoices.SingleOrDefault(i => i.Id == rent.IdInvoice);
+                var movie = _context.Movies.SingleOrDefault(m => m.Id == invoice.IdFilm);
+                movies.Add(movie);
+            }
+
+            var genres = _context.Genres.ToList();
+
+            var viewModel = new MyRentsViewModel
+            {
+                Movies = movies,
+                Genres = genres
+            };
+            return View("MyRents", viewModel);
         }
 
         //

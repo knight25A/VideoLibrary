@@ -32,7 +32,7 @@ namespace Vidéothèque.Controllers
         }
         public ActionResult Details(int id)
         {
-            var movie = _context.Movies.Include(m => m.MovieGenre). SingleOrDefault(m => m.Id == id);
+            var movie = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(m => m.Id == id);
 
             return View(movie);
         }

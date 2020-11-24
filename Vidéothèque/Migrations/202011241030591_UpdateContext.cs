@@ -16,7 +16,6 @@ namespace Vidéothèque.Migrations
         {
             DropForeignKey("dbo.Rents", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropIndex("dbo.Rents", new[] { "ApplicationUser_Id" });
-            AlterColumn("dbo.AspNetUsers", "Name", c => c.String());
             DropColumn("dbo.Rents", "ApplicationUser_Id");
         }
     }

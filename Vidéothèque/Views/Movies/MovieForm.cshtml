@@ -30,8 +30,20 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(m => m.Movie.DurationHours)
+        @Html.TextBoxFor(m => m.Movie.DurationHours, new { @class = "form-control", @type = "number", @value = "0", @min = "0", @max = "10" })
+        @Html.ValidationMessageFor(m => m.Movie.DurationHours)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.DurationMinutes)
+        @Html.TextBoxFor(m => m.Movie.DurationMinutes, new { @class = "form-control", @type = "number", @value = "0", @min = "0", @max = "59" })
+        @Html.ValidationMessageFor(m => m.Movie.DurationMinutes)
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(m => m.Movie.Price)
-        @Html.TextBoxFor(m => m.Movie.Price, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Movie.Price, new { @class = "form-control" , @type = "number", @step = "0.01", @min = "0.00", @value = "0.00"})
         @Html.ValidationMessageFor(m => m.Movie.Price)
     </div>
 

@@ -200,17 +200,9 @@
     <Compile Include="Migrations\202011091023102_firstCommit.Designer.cs">
       <DependentUpon>202011091023102_firstCommit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011091104328_firstCommit1.cs" />
-    <Compile Include="Migrations\202011091104328_firstCommit1.Designer.cs">
-      <DependentUpon>202011091104328_firstCommit1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202011091106009_firstCommit2.cs" />
     <Compile Include="Migrations\202011091106009_firstCommit2.Designer.cs">
       <DependentUpon>202011091106009_firstCommit2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011100926215_AddCustomer.cs" />
-    <Compile Include="Migrations\202011100926215_AddCustomer.Designer.cs">
-      <DependentUpon>202011100926215_AddCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202011100927533_AddCustomer2.cs" />
     <Compile Include="Migrations\202011100927533_AddCustomer2.Designer.cs">
@@ -220,10 +212,6 @@
     <Compile Include="Migrations\202011100938006_addIsSubdToCustomer.Designer.cs">
       <DependentUpon>202011100938006_addIsSubdToCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011100945053_addMembershipType.cs" />
-    <Compile Include="Migrations\202011100945053_addMembershipType.Designer.cs">
-      <DependentUpon>202011100945053_addMembershipType.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202011100948231_addMembershipType2.cs" />
     <Compile Include="Migrations\202011100948231_addMembershipType2.Designer.cs">
       <DependentUpon>202011100948231_addMembershipType2.cs</DependentUpon>
@@ -231,10 +219,6 @@
     <Compile Include="Migrations\202011100949207_addMembershipType3.cs" />
     <Compile Include="Migrations\202011100949207_addMembershipType3.Designer.cs">
       <DependentUpon>202011100949207_addMembershipType3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011100950494_addMembershipType4.cs" />
-    <Compile Include="Migrations\202011100950494_addMembershipType4.Designer.cs">
-      <DependentUpon>202011100950494_addMembershipType4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202011100956167_populateMembershipTypes.cs" />
     <Compile Include="Migrations\202011100956167_populateMembershipTypes.Designer.cs">
@@ -272,29 +256,9 @@
     <Compile Include="Migrations\202011101549479_AddGenreToMovie.Designer.cs">
       <DependentUpon>202011101549479_AddGenreToMovie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011101552310_PopulateMovies.cs" />
-    <Compile Include="Migrations\202011101552310_PopulateMovies.Designer.cs">
-      <DependentUpon>202011101552310_PopulateMovies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101603053_PopulateMovies1.cs" />
-    <Compile Include="Migrations\202011101603053_PopulateMovies1.Designer.cs">
-      <DependentUpon>202011101603053_PopulateMovies1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101614581_AddObjMovies.cs" />
-    <Compile Include="Migrations\202011101614581_AddObjMovies.Designer.cs">
-      <DependentUpon>202011101614581_AddObjMovies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101639273_AddObjMovies2.cs" />
-    <Compile Include="Migrations\202011101639273_AddObjMovies2.Designer.cs">
-      <DependentUpon>202011101639273_AddObjMovies2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202011101647504_FixGnreBug.cs" />
     <Compile Include="Migrations\202011101647504_FixGnreBug.Designer.cs">
       <DependentUpon>202011101647504_FixGnreBug.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101911420_ChangeName.cs" />
-    <Compile Include="Migrations\202011101911420_ChangeName.Designer.cs">
-      <DependentUpon>202011101911420_ChangeName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202011102004351_ChangeName2.cs" />
     <Compile Include="Migrations\202011102004351_ChangeName2.Designer.cs">
@@ -304,21 +268,9 @@
     <Compile Include="Migrations\202011141255535_changeNumberInStockType.Designer.cs">
       <DependentUpon>202011141255535_changeNumberInStockType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011141609412_fixBugObjectMovieCustomer.cs" />
-    <Compile Include="Migrations\202011141609412_fixBugObjectMovieCustomer.Designer.cs">
-      <DependentUpon>202011141609412_fixBugObjectMovieCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011211345464_changeAccountViewModels.cs" />
-    <Compile Include="Migrations\202011211345464_changeAccountViewModels.Designer.cs">
-      <DependentUpon>202011211345464_changeAccountViewModels.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202011211431401_changeIdentityModels.cs" />
     <Compile Include="Migrations\202011211431401_changeIdentityModels.Designer.cs">
       <DependentUpon>202011211431401_changeIdentityModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011211437437_changeIdentityModels1.cs" />
-    <Compile Include="Migrations\202011211437437_changeIdentityModels1.Designer.cs">
-      <DependentUpon>202011211437437_changeIdentityModels1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202011231928589_AddMoviePrice.cs" />
     <Compile Include="Migrations\202011231928589_AddMoviePrice.Designer.cs">
@@ -336,6 +288,10 @@
     <Compile Include="Migrations\202011241030591_UpdateContext.Designer.cs">
       <DependentUpon>202011241030591_UpdateContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011241520478_AddDurationMovie.cs" />
+    <Compile Include="Migrations\202011241520478_AddDurationMovie.Designer.cs">
+      <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -352,6 +308,7 @@
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\MyRentsViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -468,6 +425,7 @@
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\img\img_facture.png" />
+    <Content Include="Content\img\logan_h.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -600,6 +558,7 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Shared\_Sidenav.cshtml" />
     <Content Include="Views\Rent\Invoices.cshtml" />
+    <Content Include="Views\Account\MyRents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,14 +580,8 @@
     <EmbeddedResource Include="Migrations\202011091023102_firstCommit.resx">
       <DependentUpon>202011091023102_firstCommit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011091104328_firstCommit1.resx">
-      <DependentUpon>202011091104328_firstCommit1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011091106009_firstCommit2.resx">
       <DependentUpon>202011091106009_firstCommit2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100926215_AddCustomer.resx">
-      <DependentUpon>202011100926215_AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011100927533_AddCustomer2.resx">
       <DependentUpon>202011100927533_AddCustomer2.cs</DependentUpon>
@@ -636,17 +589,11 @@
     <EmbeddedResource Include="Migrations\202011100938006_addIsSubdToCustomer.resx">
       <DependentUpon>202011100938006_addIsSubdToCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100945053_addMembershipType.resx">
-      <DependentUpon>202011100945053_addMembershipType.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011100948231_addMembershipType2.resx">
       <DependentUpon>202011100948231_addMembershipType2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011100949207_addMembershipType3.resx">
       <DependentUpon>202011100949207_addMembershipType3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100950494_addMembershipType4.resx">
-      <DependentUpon>202011100950494_addMembershipType4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011100956167_populateMembershipTypes.resx">
       <DependentUpon>202011100956167_populateMembershipTypes.cs</DependentUpon>
@@ -675,23 +622,8 @@
     <EmbeddedResource Include="Migrations\202011101549479_AddGenreToMovie.resx">
       <DependentUpon>202011101549479_AddGenreToMovie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101552310_PopulateMovies.resx">
-      <DependentUpon>202011101552310_PopulateMovies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101603053_PopulateMovies1.resx">
-      <DependentUpon>202011101603053_PopulateMovies1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101614581_AddObjMovies.resx">
-      <DependentUpon>202011101614581_AddObjMovies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101639273_AddObjMovies2.resx">
-      <DependentUpon>202011101639273_AddObjMovies2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011101647504_FixGnreBug.resx">
       <DependentUpon>202011101647504_FixGnreBug.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101911420_ChangeName.resx">
-      <DependentUpon>202011101911420_ChangeName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011102004351_ChangeName2.resx">
       <DependentUpon>202011102004351_ChangeName2.cs</DependentUpon>
@@ -699,17 +631,8 @@
     <EmbeddedResource Include="Migrations\202011141255535_changeNumberInStockType.resx">
       <DependentUpon>202011141255535_changeNumberInStockType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011141609412_fixBugObjectMovieCustomer.resx">
-      <DependentUpon>202011141609412_fixBugObjectMovieCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011211345464_changeAccountViewModels.resx">
-      <DependentUpon>202011211345464_changeAccountViewModels.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011211431401_changeIdentityModels.resx">
       <DependentUpon>202011211431401_changeIdentityModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011211437437_changeIdentityModels1.resx">
-      <DependentUpon>202011211437437_changeIdentityModels1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011231928589_AddMoviePrice.resx">
       <DependentUpon>202011231928589_AddMoviePrice.cs</DependentUpon>
@@ -722,6 +645,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011241030591_UpdateContext.resx">
       <DependentUpon>202011241030591_UpdateContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241520478_AddDurationMovie.resx">
+      <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
