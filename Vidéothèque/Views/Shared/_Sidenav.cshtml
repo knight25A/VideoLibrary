@@ -9,8 +9,7 @@
     }
     @if (Request.IsAuthenticated && !User.IsInRole("CanManageEverything"))
     {
-        <h5>@Html.ActionLink("MY LIST","", "Customers")</h5>
-        <h5>@Html.ActionLink("MY HISTORY", "", "Customers")</h5>
+        <h5>@Html.ActionLink("MY RENTS","MyRents", "Account")</h5>
     }
     <h5>
         <a href="#CategorySubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

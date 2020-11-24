@@ -7,14 +7,14 @@ namespace Vidéothèque.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.AspNetUsers", "Pseudo", c => c.String());
+            AddColumn("dbo.AspNetUsers", "Name", c => c.String());
             AddColumn("dbo.AspNetUsers", "Age", c => c.String());
         }
         
         public override void Down()
         {
             DropColumn("dbo.AspNetUsers", "Age");
-            DropColumn("dbo.AspNetUsers", "Pseudo");
+            DropColumn("dbo.AspNetUsers", "Name");
         }
     }
 }

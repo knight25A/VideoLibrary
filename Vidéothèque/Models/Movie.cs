@@ -36,6 +36,13 @@ namespace Vidéothèque.Models
 
 
         [Required]
+        [Range(0, 10)]
+        public int DurationHours { get; set; }
+        [Required]
+        [Range(0, 59)]
+        public int DurationMinutes { get; set; }
+
+        [Required]
         [Display(Name = "Price")]
         public float Price { get; set; }
 
