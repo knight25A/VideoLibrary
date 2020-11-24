@@ -29,7 +29,7 @@ namespace Vidéothèque.Models
 
         [Display(Name = "Number in Stock")]
         [Range(1, 150)]
-        [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")]        //[CheckIfIntegerFormField]
+        [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")] 
         public int NumberInStock { get; set; }
 
         public string ImagePath { get; set; }

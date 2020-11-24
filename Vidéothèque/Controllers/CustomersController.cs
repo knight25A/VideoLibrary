@@ -44,7 +44,16 @@ namespace Vidéothèque.Controllers
             //return View(customers);
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(string searchName)
+        {
 
+            //var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
+            //return View(movies);
+            //return View();
+            return RedirectToAction("Index", "Home", new { searchName = searchName });
+
+        }
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.SingleOrDefault(cust => cust.Id == id);

@@ -52,7 +52,7 @@ namespace Vidéothèque.Controllers
                 _userManager = value;
             }
         }
-
+       
         //
         // GET: /Account/Login
         [AllowAnonymous]
