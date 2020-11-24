@@ -1,7 +1,9 @@
 ﻿@model Vidéothèque.ViewModels.MovieFormViewModel
 @{
-    ViewBag.Title = "MovieForm";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "MovieForm";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>MovieForm</h2>
@@ -27,6 +29,11 @@
         @Html.ValidationMessageFor(m => m.Movie.GenreId)
     </div>
 
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Price)
+        @Html.TextBoxFor(m => m.Movie.Price, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Movie.Price)
+    </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.NumberInStock)

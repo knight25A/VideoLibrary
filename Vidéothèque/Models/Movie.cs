@@ -30,5 +30,9 @@ namespace Vidéothèque.Models
         [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")]        //[CheckIfIntegerFormField]
         public int NumberInStock { get; set; }
 
+        [Required]
+        [Display(Name = "Price")]
+        public float Price { get; set; }
+
     }
 }

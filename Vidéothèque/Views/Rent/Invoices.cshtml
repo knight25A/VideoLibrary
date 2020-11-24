@@ -1,0 +1,42 @@
+﻿@model Vidéothèque.ViewModels.InvoiceViewModel
+@{
+    ViewBag.Title = "Invoices";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="invoice" class="container">
+    <div class="text-center">
+        <h2>INVOICE</h2>
+
+    </div>
+    <div>
+        <hr />
+        <h4 class="col-md-6">Name : @Model.User.Name</h4>
+        <h4 class="col-md-6">Email : @Model.User.Email</h4>
+        <h4 class="col-md-12">Movie : @Model.Movie.Title</h4>
+        <h4 class="col-md-6">Date : @Model.Invoice.DateLocation.Day/@Model.Invoice.DateLocation.Month/@Model.Invoice.DateLocation.Year</h4>
+        <h4 class="col-md-6">Return Date : @Model.Invoice.DateLocation.AddMonths(1).Day/@Model.Invoice.DateLocation.AddMonths(1).Month/@Model.Invoice.DateLocation.AddMonths(1).Year</h4>
+        <table class="table">
+            <tr>
+                <th>Movie</th>
+                <th>ID</th>
+                 <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td>@Model.Movie.Title</td>
+                <td>@Model.Invoice.IdFilm</td>
+               <td>@Model.Movie.Price $</td>
+                <td>@Model.Invoice.Quantity</td>
+                <td>@Model.Invoice.TotalPrice $</td>
+            </tr>
+        </table>
+        <img id="img_invoice" src="~/Content/img/img_facture.png" />
+    </div>
+
+</div>
+<a class="btn btn-primary" href=@Url.Action("CancelRent","Rent", new { id = Model.Invoice.Id })>CANCEL</a>
+<a class="btn btn-warning" href=@Url.Action("SaveRent", "Rent", new { id = Model.Invoice.Id })>OK</a>
+}
+

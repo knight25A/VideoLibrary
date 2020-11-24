@@ -7,16 +7,16 @@
 
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="@Url.Action("Index","Manage")" title="Manage">@User.Identity.GetUserName() <i class="fa fa-user" style="font-size:20px;color:white"></i></a>
+                <a href="@Url.Action("Index","Manage")" title="Manage"><i class="fa fa-user" style="font-size:20px;color:white"></i> @User.Identity.GetUserName()</a>
             </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out <i class="fa fa-sign-out" style="font-size:20px;color:white"></i></a></li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out" style="font-size:20px;color:white"></i> Log out</a></li>
         </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li><a href="@Url.Action("Login","Account")" id="loginLink">Log in <i class="fa fa-sign-in" style="font-size:20px;color:white"></i></a></li>
-        <li><a href="@Url.Action("Register", "Account")" id="registerLink">Register <i class="fa fa-user-plus" style="font-size:20px;color:white"></i></a></li>
+        <li><a href="@Url.Action("Login","Account")" id="loginLink"><i class="fa fa-sign-in" style="font-size:20px;color:white"></i> Log in</a></li>
+        <li><a href="@Url.Action("Register", "Account")" id="registerLink"><i class="fa fa-user-plus" style="font-size:20px;color:white"></i> Register</a></li>
     </ul>
 }
