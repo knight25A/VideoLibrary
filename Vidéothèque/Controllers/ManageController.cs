@@ -49,7 +49,12 @@ namespace Vidéothèque.Controllers
                 _userManager = value;
             }
         }
-
+ 
+        [HttpPost]
+        public ActionResult  Index (string searchName)
+        {
+            return RedirectToAction("Index", "Home", new { searchName = searchName });
+        }
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)

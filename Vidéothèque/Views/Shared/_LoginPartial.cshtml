@@ -7,14 +7,7 @@
 
 <ul class="nav navbar-nav navbar-right">
     <li>
-        <!-- The Search form -->
-        @using (Html.BeginForm())
-        {
-            <p>
-                @Html.TextBox("SearchName")
-                <input type="submit" value="Search" />
-            </p>
-        }
+       
     </li>
     <li>
         <a href="@Url.Action("Index","Manage")" title="Manage">@User.Identity.GetUserName() <i class="fa fa-user" style="font-size:20px;color:white"></i></a>
@@ -26,16 +19,7 @@
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>
-            <!-- The Search form -->
-                @using (Html.BeginForm())
-                {
-                    <p>
-                        @Html.TextBox("SearchName")
-                        <input type="submit" value="Search" />
-                    </p>
-                }
-        </li>
+      
         <li><a href="@Url.Action("Login","Account")" id="loginLink">Log in <i class="fa fa-sign-in" style="font-size:20px;color:white"></i></a></li>
         <li><a href="@Url.Action("Register", "Account")" id="registerLink">Register <i class="fa fa-user-plus" style="font-size:20px;color:white"></i></a></li>
     </ul>
