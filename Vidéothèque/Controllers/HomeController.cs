@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Vidéothèque.Models;
+using PagedList;
 
 namespace Vidéothèque.Controllers
 {
@@ -30,10 +31,14 @@ namespace Vidéothèque.Controllers
             return View(movies);
         }
         */
-        public ActionResult Index(string searchName)
+        public ActionResult Index(string searchName, int? page)
         {
+            int pageSize = 12, pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+
             // Current movies
             var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
+
             // Filter down if necessary
             if (!String.IsNullOrEmpty(searchName))
             {
@@ -44,20 +49,23 @@ namespace Vidéothèque.Controllers
                 else
                 {
                     movies = _context.Movies.Include(m => m.MovieGenre).Where(m => m.MovieGenre.Name.Contains(searchName)).ToList();
-                    ViewBag.Message = "There is no movie that contains the";
+                    //no movies that containt the searched string
                 }
             }
+
+            IPagedList<Movie> paged_movies = movies.ToPagedList(pageIndex, pageSize);
+
             // Pass your list out to your view
-            return View(movies);
+            return View(paged_movies);
         }
 
-        public ActionResult Details(int id)
+        /*public ActionResult Details(int id)
         {
             var movie = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(m => m.Id == id);
 
             return View(movie);
         }
-
+        */
 
         public ActionResult About()
         {

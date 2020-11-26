@@ -12,8 +12,6 @@ using System.Web;
 
 namespace Vidéothèque.Controllers
 {
-    [Authorize(Roles = RoleName.Admin)]
-
     public class MoviesController : Controller
     {
         // GET: Movies
@@ -31,32 +29,8 @@ namespace Vidéothèque.Controllers
         }
 
 
-        public ActionResult Random()
-        {
-            var movie = new Movie() { Title = "Shrek" };
 
-            /*var viewResult = new ViewResult();
-            _ = viewResult.ViewData.Model;*/
-
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1"},
-                new Customer { Name = "Customer 2"},
-                new Customer { Name = "Customer 3"}
-
-
-            };
-
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-
-            return View(viewModel);
-        }
-
-        //[AllowAnonymous]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Index()
         {
 
@@ -68,6 +42,7 @@ namespace Vidéothèque.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Index(string searchName)
         {
 
@@ -93,12 +68,15 @@ namespace Vidéothèque.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
+
         public ActionResult Details(string searchName)
         {
             return RedirectToAction("Index", "Home", new { searchName = searchName });
 
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(m => m.Id == id);
@@ -115,7 +93,7 @@ namespace Vidéothèque.Controllers
             return View("MovieForm", viewModel);
         }
 
-
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult MovieForm()
         {
 
@@ -129,6 +107,7 @@ namespace Vidéothèque.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Save(Movie movie, HttpPostedFileBase file)
         {
 

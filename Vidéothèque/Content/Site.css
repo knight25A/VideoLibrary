@@ -3,6 +3,16 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+/* Style the search box inside the navigation bar */
+.navbar-header {
+    float: left;
+    width: 80%;
+}
+.navbar-collapse{
+    float:right;
+    width:12%
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-top: 10px;

@@ -11,6 +11,8 @@ using Vidéothèque.ViewModels;
 
 namespace Vidéothèque.Controllers
 {
+    [System.Web.Http.Authorize]
+
     public class RentController : Controller
     {
         private ApplicationDbContext _context;

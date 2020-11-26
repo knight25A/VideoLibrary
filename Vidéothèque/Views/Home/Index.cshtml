@@ -1,4 +1,8 @@
-﻿@model IEnumerable<Vidéothèque.Models.Movie>
+﻿@using PagedList.Mvc;
+
+
+@model PagedList.IPagedList<Vidéothèque.Models.Movie>
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -40,14 +44,6 @@
     </div>
 
 <main role="main">
-
-    @if (!Model.Any())
-    {
-        <p class="text-center">We don't have any movies yet.</p>
-    }
-    else
-    {
-
         <div class="album py-5 bg-light">
             <div class="container">
 
@@ -75,7 +71,12 @@
                     }
                 </div>
             </div>
-        </div>
+        </div>    
 
-    }
+    <div>
+        <div class="pagination" style="margin-left:400px">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount @Html.PagedListPager(Model, page => Url.Action("Index", new { page }));
+        </div>
+    </div>
 </main>

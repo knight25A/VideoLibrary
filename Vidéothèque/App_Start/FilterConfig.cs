@@ -9,6 +9,7 @@ namespace Vidéothèque
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new AuthorizeAttribute());
+            
         }
     }
 }
