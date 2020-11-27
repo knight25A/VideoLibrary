@@ -80,6 +80,11 @@ namespace Vidéothèque.Controllers.Api
             movieInDb.ReleaseDate = movieDto.ReleaseDate;
             movieInDb.DateAdded = movieDto.DateAdded;
             movieInDb.GenreId = movieDto.GenreId;
+            movieInDb.Synopsis = movieDto.Synopsis;
+            movieInDb.ImagePath = movieDto.ImagePath;
+            movieInDb.ImagePoster = movieDto.ImagePath;
+            movieInDb.Price = movieDto.Price;
+            movieInDb.Actors = movieDto.Actors;
 
             _context.SaveChanges();
         }

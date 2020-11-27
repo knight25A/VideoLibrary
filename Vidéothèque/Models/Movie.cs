@@ -12,6 +12,9 @@ namespace Vidéothèque.Models
         [Required]
         [StringLength(255)]
         public string Title { get; set; }
+        public string Synopsis { get; set; }
+
+        public string Actors { get; set; }
 
         public Genre MovieGenre { get; set; }
 
@@ -21,11 +24,11 @@ namespace Vidéothèque.Models
         //public object Genre { get; internal set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Release Date")]
-        public DateTime ReleaseDate { get; set; }
+        public DateTime? ReleaseDate { get; set; }
 
         [Display(Name = "Number in Stock")]
         [Range(1, 150)]
@@ -34,7 +37,7 @@ namespace Vidéothèque.Models
 
         public string ImagePath { get; set; }
 
-
+        public string ImagePoster { get; set; }
         [Required]
         [Range(0, 10)]
         public int DurationHours { get; set; }

@@ -105,13 +105,13 @@ namespace Vidéothèque.Controllers
 
         [HttpPost]
         [Authorize(Roles = RoleName.Admin)]
-        public ActionResult Save(Movie movie, HttpPostedFileBase file)
+        public ActionResult Save(Movie movie, IEnumerable<HttpPostedFileBase> file)
         {
 
             if (movie.Id == 0) //the customer does not exist on the DB which means it's a new Customer
             {
 
-                if (file != null && file.ContentLength > 0)
+               /* if (file != null && file.ContentLength > 0)
                 {
                     //Use Namespace called :  System.IO  
                     string FileName = Path.GetFileNameWithoutExtension(file.FileName);
@@ -132,6 +132,38 @@ namespace Vidéothèque.Controllers
                     //To copy and save file into server.  
                     file.SaveAs(path);
                 }
+               */
+                if (file != null)
+                {
+
+                    //Use Namespace called :  System.IO  
+                    string FileName1 = Path.GetFileNameWithoutExtension(file.ElementAt(0).FileName);
+                    string FileName2 = Path.GetFileNameWithoutExtension(file.ElementAt(1).FileName);
+
+                    //To Get File Extension  
+                    string FileExtension1 = Path.GetExtension(file.ElementAt(0).FileName);
+                    string FileExtension2 = Path.GetExtension(file.ElementAt(1).FileName);
+
+
+                    //Add Current Date To Attached File Name  
+                    FileName1 = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName1.Trim() + FileExtension1;
+                    FileName2 = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName2.Trim() + FileExtension2;
+
+                    //Get Upload path from Web.Config file AppSettings.  
+                    //string UploadPath = ConfigurationManager.AppSettings["ImagePath"].ToString();
+                    string path1 = Path.Combine(Server.MapPath("~/Images"), FileName1);
+                    string path2 = Path.Combine(Server.MapPath("~/Images"), FileName2);
+
+                    //Its Create complete path to store in server.  
+                    movie.ImagePath = FileName1;
+                    movie.ImagePoster = FileName2;
+
+                    //To copy and save file into server.  
+                    file.ElementAt(0).SaveAs(path1);
+                    file.ElementAt(1).SaveAs(path2);
+
+                }
+
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
             }
@@ -147,6 +179,8 @@ namespace Vidéothèque.Controllers
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.DateAdded = movie.DateAdded;
                 movieInDb.GenreId = movie.GenreId;
+                movieInDb.Synopsis = movie.Synopsis;
+                movieInDb.Actors = movie.Actors;
             }
 
             try

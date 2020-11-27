@@ -14,6 +14,9 @@ namespace Vidéothèque.Dtos
         [Required]
         [StringLength(255)]
         public string Title { get; set; }
+        public string Synopsis { get; set; }
+
+        public string Actors { get; set; }
 
         [Required]
         [Display(Name = "Genre")]
@@ -28,5 +31,17 @@ namespace Vidéothèque.Dtos
         [Range(1, 150)]
         [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")]       
         public int NumberInStock { get; set; }
+
+        public string ImagePath { get; set; }
+
+        [Required]
+        [Range(0, 10)]
+        public int DurationHours { get; set; }
+        [Required]
+        [Range(0, 59)]
+        public int DurationMinutes { get; set; }
+
+        [Required]
+        public float Price { get; set; }
     }
 }

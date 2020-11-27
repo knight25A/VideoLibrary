@@ -16,9 +16,10 @@
     <table id="movies" class="table table-hover table-active">
         <thead>
             <tr>
-                <th width="50%" scope="col-6">Movie</th>
-                <th scope="col-3">Genre</th>
-                <th scope="col-3">Actions</th>
+                <th width="50%" scope="col">Movie</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Action</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -39,20 +40,24 @@
                         {
                             data: "name",
                             render: function (data, type, movie) {
-                                return "<a href='/movies/details/ class='list-group-item list-group-item-action'" + movie.id + " '>" + movie.title + "</a>";
+                                return "<a href='/movies/details/" + movie.id + " '>" + movie.title + "</a>";
                             }
                         },
                         {
                             data: "movieGenre.name"
-
                         },
                         {
                             data: "name",
                             render: function (data, type, movie) {
-                                return "<a href='/movies/edit/" + movie.id + " '  class='btn btn-warning' > Edit </a> <button class='js-delete btn btn-danger' data-movie-id=" + movie.id + " >Delete</button>";
+                                return "<a class='btn btn-warning' href='/movies/edit/" + movie.id + " '> Edit </a>";
                             }
                         },
-
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn btn-danger js-delete' data-movie-id=" + data + ">Delete</button>";
+                            }
+                        }
                     ]
                 });
 
