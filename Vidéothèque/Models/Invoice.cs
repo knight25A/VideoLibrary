@@ -10,9 +10,10 @@ namespace Vidéothèque.Models
 
         [Required]
         public int IdFilm { get; set; }
+        public Movie Movie { get; set; }
         [Required]
         public string IdUser { get; set; }
-        
+        public ApplicationUser User { get; set; }
         [Required]
         [Column(TypeName = "datetime2")]
         public DateTime DateLocation { get; set; }

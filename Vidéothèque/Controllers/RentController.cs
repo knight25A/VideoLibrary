@@ -8,6 +8,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using Vidéothèque.Models;
 using Vidéothèque.ViewModels;
+using System.Data.Entity;
 
 namespace Vidéothèque.Controllers
 {
@@ -26,6 +27,19 @@ namespace Vidéothèque.Controllers
         {
             _context.Dispose();
         }
+
+        public ActionResult Index()
+        {
+
+            var rents = _context.Rents.Include(r => r.Invoice).ToList();
+            var viewModel = new AllRentsViewModel
+            {
+               Rents = rents
+            };
+
+            return View(viewModel);
+        }
+
 
         public ActionResult Rent(int id, int quantity)
         {

@@ -5,17 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main role="main">
-    <h2>Movies</h2>
-    <button class="btn btn-default">@Html.ActionLink("+ Add Movie", "movieForm", "Movies")</button>
+<main role="main" class="col-md-10 mx-auto p-5" style="border: solid 1px black;
+                                                    background-color: lightgrey;
+                                                    padding: 85px;
+                                                    margin: 85px;
+                                                    border-radius: 25px">
+    <center><h2 style="padding: 15px;">Movies</h2></center>
+    <button class="btn btn-default btn-lg">@Html.ActionLink("+ Add Movie", "movieForm", "Movies")</button>
     <br />
-    <table id="movies" class="table table-bordered table-hover">
+    <table id="movies" class="table table-hover table-active">
         <thead>
             <tr>
-                <th>Movie</th>
-                <th>Genre</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th width="50%" scope="col-6">Movie</th>
+                <th scope="col-3">Genre</th>
+                <th scope="col-3">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -36,7 +39,7 @@
                         {
                             data: "name",
                             render: function (data, type, movie) {
-                                return "<a href='/movies/details/" + movie.id + " '>" + movie.title + "</a>";
+                                return "<a href='/movies/details/ class='list-group-item list-group-item-action'" + movie.id + " '>" + movie.title + "</a>";
                             }
                         },
                         {
@@ -46,15 +49,10 @@
                         {
                             data: "name",
                             render: function (data, type, movie) {
-                                return "<a href='/movies/edit/" + movie.id + " '> Edit </a>";
+                                return "<a href='/movies/edit/" + movie.id + " '  class='btn btn-warning' > Edit </a> <button class='js-delete btn btn-danger' data-movie-id=" + movie.id + " >Delete</button>";
                             }
                         },
-                        {
-                            data: "id",
-                            render: function (data) {
-                                return "<button class='btn-link js-delete' data-movie-id=" + data + " >Delete</button>";
-                            }
-                        }
+
                     ]
                 });
 
@@ -77,4 +75,4 @@
             });
         </script>
     }
- </main>
+</main>

@@ -11,6 +11,8 @@ namespace Vidéothèque.Models
 
         [Required]
         public int IdInvoice { get; set; }
+
+        public Invoice Invoice { get; set; }
         [Required]
         public string IdUser { get; set; }
 

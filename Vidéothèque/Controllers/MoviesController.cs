@@ -46,9 +46,6 @@ namespace Vidéothèque.Controllers
         public ActionResult Index(string searchName)
         {
 
-            //var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
-            //return View(movies);
-            //return View();
             return RedirectToAction("Index", "Home", new { searchName = searchName });
 
         }

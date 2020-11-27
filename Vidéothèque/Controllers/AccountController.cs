@@ -12,6 +12,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Vidéothèque.Models;
 using Vidéothèque.ViewModels;
+using System.Data.Entity;
+
 
 namespace Vidéothèque.Controllers
 {
@@ -58,6 +60,26 @@ namespace Vidéothèque.Controllers
             }
         }
 
+        /*public ActionResult Index()
+        {
+            var customers = _context.Users
+               .Include(c => c.Rents)
+               .ToList();
+            return View(customers);
+        }
+        
+        public virtual ActionResult Index()
+        {
+            var users = UserManager.Users;
+
+            var model = new AllRentsViewModel()
+            {
+                Customers = users.Include(u => u.Rents).ToList(),
+            };
+            return View(model);
+        }
+
+        */
         public ActionResult MyRents()
         {
             var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
