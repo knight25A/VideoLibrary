@@ -13,7 +13,8 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> Year <i class="fa fa-caret-down"></i>
+                    @Html.ActionLink("Date", "Index", "Home", new { @sortOrder = "Year", @style = "color: white" }, null)
+                    <i class="fas fa-circle"></i>
                 </label>
             </div>
         </div>
@@ -21,7 +22,8 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> Name <i class="fa fa-caret-down"></i>
+                    @Html.ActionLink("Title", "Index", "Home", new { @sortOrder = "Title" }, null)
+                    <i class="fas fa-circle"></i>   
                 </label>
             </div>
         </div>
@@ -29,7 +31,8 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox"> Director <i class="fa fa-caret-down"></i>
+                    @Html.ActionLink("Price", "Index", "Home", new { @sortOrder = "Price" }, null)
+                    <i class="fas fa-circle"></i>
                 </label>
             </div>
         </div>

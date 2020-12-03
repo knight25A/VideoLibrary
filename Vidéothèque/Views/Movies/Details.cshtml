@@ -4,23 +4,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Movie Details</h2>
+<div class="container">
+    @using (Html.BeginForm("Rent", "Rent"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
 
-@Model.Title
-<br />
-@Model.MovieGenre.Name
-<br />
-@Model.NumberInStock
-<br />
-path:
-<br />
-<img src="~/Images/@Model.ImagePoster" />
-
-<img src="~/Images/@Model.ImagePath" />
-<br />
-
-<br />
-@Model.ReleaseDate
+        <img id="cover_movie" width="1000" height="200" src="~/Images/@Model.ImagePoster" />
 
 
+        <div class="col-md-3 text-center">
 
+            <img id="poster_movie" width="250" height="300" src="~/Images/@Model.ImagePath" />
+
+
+            <label>Quantity : <input id="qt_input_rent" type="number" name="quantity" value="1" min="1" max="@Model.NumberInStock" /></label>
+            <button type="submit" class="btn btn-warning">RENT</button>
+        </div>
+        <div id="movie_details" class="col-md-9">
+            <div class="col-md-4"><h4>@Model.Title</h4></div>
+            <div class="col-md-4"><h5>3h02</h5></div>
+            <div class="col-md-4"><h5>@Model.ReleaseDate</h5></div>
+
+            <h5>@Model.MovieGenre.Name</h5> <br />
+            <h5>Director: </h5>
+            <h5>Actors: </h5>
+            <br />
+            <h5>Synopsis:</h5>
+            <p>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero
+                sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+            </p>
+        </div>
+
+
+    }
+ </div>

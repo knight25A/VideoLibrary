@@ -60,6 +60,19 @@ namespace Vidéothèque.Controllers
             }
         }
 
+        public ActionResult Index()
+        {
+            var customers = _context.Users.ToList();
+            return View(customers);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string searchName)
+        {
+
+            return RedirectToAction("Index", "Home", new { searchName = searchName });
+
+        }
         /*public ActionResult Index()
         {
             var customers = _context.Users
@@ -79,7 +92,7 @@ namespace Vidéothèque.Controllers
             return View(model);
         }
 
-        */
+        
         public ActionResult MyRents()
         {
             var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
@@ -102,7 +115,7 @@ namespace Vidéothèque.Controllers
             };
             return View("MyRents", viewModel);
         }
-
+        */
         //
         // GET: /Account/Login
         [AllowAnonymous]

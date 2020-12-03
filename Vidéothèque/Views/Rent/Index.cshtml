@@ -9,11 +9,6 @@
 <h2>Index</h2>
 @foreach (var rent in Model.Rents)
 {
-    @rent.Invoice.User.Email
-    <br />
-    @rent.Invoice.User.Name
-    <br />
-    @rent.Invoice.Movie.Title
-    <br />
-    @rent.Invoice.Movie.MovieGenre.Name
+    @rent
+  
 }

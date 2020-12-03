@@ -24,20 +24,24 @@ namespace Vidéothèque.Controllers
             _context.Dispose();
         }
 
-        /*public ActionResult Index()
-        {
-            var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
-
-            return View(movies);
-        }
-        */
-        public ActionResult Index(string searchName, int? page)
+        
+        public ActionResult Index(string searchName, int? page, string sortOrder)
         {
             int pageSize = 12, pageIndex = 1;
             pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
 
             // Current movies
             var movies = _context.Movies.Include(m => m.MovieGenre).ToList();
+
+            if (sortOrder != null)
+            {
+                if (sortOrder == "Year")
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(g => g.ReleaseDate).ToList();
+                else if (sortOrder == "Title")
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(m => m.Title).ToList();
+                else if (sortOrder == "Price")
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(m => m.Price).ToList();
+            }
 
             // Filter down if necessary
             if (!String.IsNullOrEmpty(searchName))
@@ -58,7 +62,7 @@ namespace Vidéothèque.Controllers
             // Pass your list out to your view
             return View(paged_movies);
         }
-
+          
         /*public ActionResult Details(int id)
         {
             var movie = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(m => m.Id == id);

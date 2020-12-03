@@ -30,9 +30,7 @@ namespace Vidéothèque.Controllers
        
         public ActionResult Index()
         {
-            var customers = _context.Users
-               .Include(c => c.Rents)
-               .ToList();
+            var customers = _context.Users.ToList();
             return View(customers);
         }
         [HttpPost]

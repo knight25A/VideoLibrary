@@ -28,7 +28,7 @@ namespace Vidéothèque.Controllers
             _context.Dispose();
         }
 
-        public ActionResult Index()
+        /* public ActionResult Index()
         {
 
             var rents = _context.Rents.Include(r => r.Invoice).ToList();
@@ -40,7 +40,7 @@ namespace Vidéothèque.Controllers
             return View(viewModel);
         }
 
-
+        */
         public ActionResult Rent(int id, int quantity)
         {
             

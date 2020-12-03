@@ -133,7 +133,7 @@ namespace Vidéothèque.Controllers
                     file.SaveAs(path);
                 }
                */
-                if (file != null)
+                if (file.ElementAt(0) != null && file.ElementAt(1)!=null && file.ElementAt(0).ContentLength > 0 && file.ElementAt(1).ContentLength > 0)
                 {
 
                     //Use Namespace called :  System.IO  
