@@ -4,12 +4,14 @@
 
     @if (User.IsInRole("CanManageEverything"))
     {
-        <h5>@Html.ActionLink("CUSTOMERS", "Index", "Customers")</h5>
+        <h5>@Html.ActionLink("CUSTOMERS", "Index", "Account")</h5>
         <h5>@Html.ActionLink("MOVIES", "Index", "Movies")</h5>
+        <h5>@Html.ActionLink("RENTS", "Index", "Rent")</h5>
+
     }
     @if (Request.IsAuthenticated && !User.IsInRole("CanManageEverything"))
     {
-        <h5>@Html.ActionLink("MY RENTS","MyRents", "Account")</h5>
+        <h5>@Html.ActionLink("MY RENTS", "MyRents", "Account")</h5>
     }
     <h5>
         <a href="#CategorySubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

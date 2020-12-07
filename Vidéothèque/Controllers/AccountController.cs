@@ -66,6 +66,26 @@ namespace Vidéothèque.Controllers
             return View(customers);
         }
 
+        public ActionResult Details(string identity)
+        {
+             var user = _context.Users.SingleOrDefault(u => u.Id == identity);
+
+            if (user != null)
+            {
+                var rents = _context.Rents.Include(r => r.Invoice.Movie).Where(r => r.IdUser == user.Id).ToList();
+                var viewModel = new UserRentsViewModel
+                {
+                   User = user,
+                   Rents = rents
+                   
+                };
+                return View(viewModel);
+            }
+                
+            else
+                return RedirectToAction("Index", "Account");
+        }
+       
         [HttpPost]
         public ActionResult Index(string searchName)
         {
@@ -73,26 +93,7 @@ namespace Vidéothèque.Controllers
             return RedirectToAction("Index", "Home", new { searchName = searchName });
 
         }
-        /*public ActionResult Index()
-        {
-            var customers = _context.Users
-               .Include(c => c.Rents)
-               .ToList();
-            return View(customers);
-        }
-        
-        public virtual ActionResult Index()
-        {
-            var users = UserManager.Users;
 
-            var model = new AllRentsViewModel()
-            {
-                Customers = users.Include(u => u.Rents).ToList(),
-            };
-            return View(model);
-        }
-
-        */
         public ActionResult MyRents()
         {
             var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);

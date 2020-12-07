@@ -1,0 +1,21 @@
+﻿@model Vidéothèque.ViewModels.UserRentsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+    @Model.User.Email
+</h2>
+
+@foreach (var rent in Model.Rents)
+{
+    @rent.Invoice.Movie.Title
+    <br />
+
+    @rent.Status
+    <br />
+    @rent.Invoice.Quantity
+    <br /><br />
+    <hr />
+}

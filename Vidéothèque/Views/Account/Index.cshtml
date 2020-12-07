@@ -7,7 +7,22 @@
 
 <h2>Index</h2>
 
-@foreach(var user in Model)
+@foreach (var user in Model)
 {
+    @user.Id
+    <br />
     @user.Email
+    <br />
+    @user.Name
+    <br />
+    <br />
+    @Html.ActionLink(@user.Email, "Details", "Account", new { @identity = @user.Id }, null)
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <hr />
 }
