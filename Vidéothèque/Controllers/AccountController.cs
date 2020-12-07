@@ -92,7 +92,7 @@ namespace Vidéothèque.Controllers
             return View(model);
         }
 
-        
+        */
         public ActionResult MyRents()
         {
             var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
@@ -101,8 +101,8 @@ namespace Vidéothèque.Controllers
             List<Movie> movies = new List<Movie> { };
             foreach(var rent in rents)
             {
-                var invoice = _context.Invoices.SingleOrDefault(i => i.Id == rent.IdInvoice);
-                var movie = _context.Movies.SingleOrDefault(m => m.Id == invoice.IdFilm);
+                var invoice = _context.Invoices.SingleOrDefault(i => i.Id == rent.InvoiceId);
+                var movie = _context.Movies.SingleOrDefault(m => m.Id == invoice.MovieId);
                 movies.Add(movie);
             }
 
@@ -115,7 +115,7 @@ namespace Vidéothèque.Controllers
             };
             return View("MyRents", viewModel);
         }
-        */
+        
         //
         // GET: /Account/Login
         [AllowAnonymous]

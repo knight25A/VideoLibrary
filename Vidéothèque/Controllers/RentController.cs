@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Vidéothèque.Models;
 using Vidéothèque.ViewModels;
 using System.Data.Entity;
+using System.Web.Security;
 
 namespace Vidéothèque.Controllers
 {
@@ -28,19 +29,100 @@ namespace Vidéothèque.Controllers
             _context.Dispose();
         }
 
-        /* public ActionResult Index()
-        {
 
-            var rents = _context.Rents.Include(r => r.Invoice).ToList();
+
+        [System.Web.Http.Authorize(Roles = RoleName.Admin)]
+        public ActionResult Index(string sortOrder, string searchString)
+        {
+            List<Rent> rents = new List<Rent> { };
+
+            if (sortOrder != null)
+            {
+                if (sortOrder == "Title")
+                    rents = _context.Rents.Include(r => r.Invoice.Movie).OrderBy(m => m.Invoice.Movie.Title).ToList();
+
+                else if (sortOrder == "Email")
+                    rents = _context.Rents.Include(r => r.Invoice.Movie).OrderBy(m => m.Invoice.User.Email).ToList();
+                else if (sortOrder == "UserName")
+                    rents = _context.Rents.Include(r => r.Invoice.Movie).OrderBy(m => m.Invoice.User.Name).ToList();
+                else 
+                    rents = _context.Rents.Include(r => r.Invoice.Movie).OrderBy(m => m.ExpectedReturnDate).ToList(); 
+            }else
+                rents = _context.Rents.Include(r => r.Invoice.Movie).ToList();
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                rents = _context.Rents.Include(r => r.Invoice.Movie).Where(s => s.Invoice.Movie.Title.Contains(searchString) || s.Invoice.User.Email.Contains(searchString) || s.Invoice.User.Name.Contains(searchString)).ToList();
+            }
+
+            List<Invoice> invoices = new List<Invoice> { };
+
+            foreach (var rent in rents)
+            {
+                var invoice = _context.Invoices.SingleOrDefault(i => i.Id == rent.InvoiceId);
+                invoices.Add(invoice);
+            }
+
+            var genres = _context.Genres.ToList();
+            var users = _context.Users.ToList();
+            var movies = _context.Movies.ToList();
+
+
             var viewModel = new AllRentsViewModel
             {
-               Rents = rents
+                Movies = movies,
+                Rents = rents,
+                Users = users,
+                Invoices = invoices
             };
 
-            return View(viewModel);
+           
+            return View("Index", viewModel);
         }
 
-        */
+        public ActionResult ChangeStatusReturned(int id)
+        {
+            var rent = _context.Rents.SingleOrDefault(i => i.Id == id);
+            if (rent == null)
+            {
+                return HttpNotFound();
+            }
+            rent.Status = "returned";
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Rent");
+        }
+
+        public ActionResult ChangeStatusLoaned(int id)
+        {
+            var rent = _context.Rents.SingleOrDefault(i => i.Id == id);
+
+            
+            if (rent == null)
+            {
+                return HttpNotFound();
+            }
+
+            rent.Status = "loaned";
+            var rentInDb = _context.Rents.Single(c => c.Id == rent.Id);
+            
+            rentInDb.Status = rent.Status;
+
+            try
+            {
+                _context.SaveChanges();
+
+            }
+            catch (DbEntityValidationException e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return RedirectToAction("Index", "Rent");
+        }
+
+
         public ActionResult Rent(int id, int quantity)
         {
             
@@ -50,7 +132,7 @@ namespace Vidéothèque.Controllers
             
             var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
 
-            var invoice = new Invoice { IdFilm = movie.Id, IdUser = user.Id, DateLocation = DateTime.Today, Quantity = quantity, TotalPrice = movie.Price*quantity };
+            var invoice = new Invoice { MovieId = movie.Id, UserId = user.Id, DateLocation = DateTime.Today, Quantity = quantity, TotalPrice = movie.Price*quantity };
             _context.Invoices.Add(invoice);
             try
             {
@@ -91,12 +173,12 @@ namespace Vidéothèque.Controllers
             {
                 return HttpNotFound();
             }
-            var user = _context.Users.SingleOrDefault(u => u.Id == invoice.IdUser);
-            var movie = _context.Movies.SingleOrDefault(m => m.Id == invoice.IdFilm);
+            var user = _context.Users.SingleOrDefault(u => u.Id == invoice.UserId);
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == invoice.MovieId);
 
             movie.NumberInStock = movie.NumberInStock - invoice.Quantity;
 
-            var rent = new Rent { IdInvoice = id, IdUser = user.Id, DateLocation = invoice.DateLocation, ExpectedReturnDate = invoice.DateLocation.AddMonths(1), Status = "reserved"};
+            var rent = new Rent { InvoiceId = id, IdUser = user.Id, DateLocation = invoice.DateLocation, ExpectedReturnDate = invoice.DateLocation.AddMonths(1), Status = "reserved"};
             _context.Rents.Add(rent);
 
             if(user.Rents == null)

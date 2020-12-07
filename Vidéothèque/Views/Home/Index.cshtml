@@ -13,7 +13,7 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.ActionLink("Date", "Index", "Home", new { @sortOrder = "Year", @style = "color: white" }, null)
+                    @Html.ActionLink("Date", "Index", "Home", new { @sortOrder = "Year"}, null)
                     <i class="fas fa-circle"></i>
                 </label>
             </div>
@@ -48,7 +48,7 @@
 
 <main role="main">
         <div class="album py-5 bg-light">
-            <div class="container">
+            <div class="container" >
 
                 <div class="row">
                     @foreach (var movie in Model)

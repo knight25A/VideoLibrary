@@ -31,6 +31,7 @@ namespace Vidéothèque.Models
         public DbSet<Rent> Rents { get; set; }
 
         public DbSet<Genre> Genres { get; set; }
+        public object Rent { get; internal set; }
 
         public ApplicationDbContext()
             : base("VideothequeDB")

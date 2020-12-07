@@ -9,10 +9,12 @@ namespace Vidéothèque.Models
 
         public int Id { get; set; }
 
-        [Required]
-        public int IdInvoice { get; set; }
-
         public Invoice Invoice { get; set; }
+
+        [Required]
+        public int InvoiceId { get; set; }
+
+
         [Required]
         public string IdUser { get; set; }
 

@@ -1,14 +1,66 @@
 ﻿@model Vidéothèque.ViewModels.AllRentsViewModel
-
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-@foreach (var rent in Model.Rents)
-{
-    @rent
-  
-}
+<h2 style="color:#284D7E;">All Rents</h2>
+
+
+<main role="main" class="col-md-10 mx-auto p-5" style="border: solid 1px black;
+                                                    background-color: lightgrey;
+                                                    padding: 85px;
+                                                    margin: 85px;
+                                                    border-radius: 25px">
+    <center><h2 style="padding: 15px;">Rents</h2></center>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find : @Html.TextBox("searchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table id="rents" class="table table-hover table-active">
+        <thead>
+            <tr>
+                <th scope="col"> @Html.ActionLink("Title", "Index", "Rent", new { @sortOrder = "Title" }, null)</th>
+                <th scope="col"> @Html.ActionLink("User Email", "Index", "Rent", new { @sortOrder = "Email" }, null)</th>
+                <th scope="col">  @Html.ActionLink("User Name", "Index", "Rent", new { @sortOrder = "UserName" }, null)</th>
+                <th scope="col">@Html.ActionLink("Expected Return Date", "Index", "Rent", new { @sortOrder = "ReturnDate" }, null) </th>
+                <th width="50%" scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rent in Model.Rents)
+            {
+                <tr>
+                    <td><h5 class="col-md-2">@Model.Movies.SingleOrDefault(g => g.Id == (Model.Invoices.SingleOrDefault(m => m.Id == rent.InvoiceId).MovieId)).Title</h5></td>
+                    <td><h5 class="col-md-2">@Model.Users.SingleOrDefault(g => g.Id == rent.IdUser).Email</h5></td>
+                    <td><h5 class="col-md-2">@Model.Users.SingleOrDefault(g => g.Id == rent.IdUser).Name</h5></td>
+                    <td><h5 class="col-md-2"> @rent.ExpectedReturnDate</h5></td>
+                    <td>
+                        <h5 class="col-md-3">@rent.Status </h5>
+
+                        <h5 class="col-md-3">
+                            @using (Html.BeginForm("ChangeStatusLoaned", "Rent", new { id = rent.Id }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="submit" class="btn btn-danger" title="loaned" value=" Loaned" />
+                            }
+                        </h5>
+                        <h5 class="col-md-3">
+                            @using (Html.BeginForm("ChangeStatusReturned", "Rent", new { id = rent.Id }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="submit" class="btn btn-info" title="returned" value=" Returned" />
+                            }
+                        </h5>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</main>
