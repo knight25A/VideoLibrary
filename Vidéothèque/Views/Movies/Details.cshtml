@@ -1,44 +1,14 @@
-﻿@model Vidéothèque.Models.Movie
+﻿@model Vidéothèque.ViewModels.MovieRentsViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>@Model.Movie.Title</h2>
 <div class="container">
-    @using (Html.BeginForm("Rent", "Rent"))
-    {
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(m => m.Id)
-
-        <img id="cover_movie" width="1000" height="50" src="~/Images/@Model.ImagePoster" />
-
-
-        <div class="col-md-3 text-center">
-
-            <img id="poster_movie" width="250" height="100" src="~/Images/@Model.ImagePath" />
-
-
-            <label>Quantity : <input id="qt_input_rent" type="number" name="quantity" value="1" min="1" max="@Model.NumberInStock" /></label>
-            <button type="submit" class="btn btn-warning">RENT</button>
-        </div>
-        <div id="movie_details" class="col-md-9">
-            <div class="col-md-4"><h4>@Model.Title</h4></div>
-            <div class="col-md-4"><h5>@Model.DurationHours h @Model.DurationMinutes</h5></div>
-            <div class="col-md-4"><h5>@Model.ReleaseDate</h5></div>
-
-            <h5>@Model.MovieGenre.Name</h5> <br />
-            <h5>Director: </h5>
-            <h5>Actors: </h5>
-            <p>
-                @Model.Actors
-            </p>
-            <br />
-            <h5>Synopsis:</h5>
-            <p>
-                @Model.Synopsis
-            </p>
-        </div>
-
-
-    }
- </div>
+   @foreach (var rent in Model.Rents)
+   {
+       @rent.Invoice.User.Email
+       <br /><hr />
+   }
+</div>

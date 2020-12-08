@@ -62,14 +62,25 @@ namespace Vidéothèque.Controllers
             // Pass your list out to your view
             return View(paged_movies);
         }
-          
-        /*public ActionResult Details(int id)
+
+        [AllowAnonymous]
+        public ActionResult Details(int id, string searchName)
         {
             var movie = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(m => m.Id == id);
 
+            //List<ApplicationUser> users 
+
+            if (searchName != null)
+                return RedirectToAction("Index", "Home", new { searchName = searchName });
             return View(movie);
         }
-        */ 
+
+        public ActionResult New()
+        {
+            ViewBag.Message = "Your application New page.";
+
+            return View();
+        }
 
         public ActionResult About()
         {

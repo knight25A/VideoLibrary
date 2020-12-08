@@ -65,7 +65,7 @@
                                        <img src="~/Images/@movie.ImagePath" width="265" height= "225" />
                                     }
                                         <div class="card-body">
-                                        <h5 class="card-title">@Html.ActionLink(movie.Title, "Details", "Movies", new { id = movie.Id }, null)</h5>
+                                        <h5 class="card-title">@Html.ActionLink(movie.Title, "Details", "Home", new { id = movie.Id }, null)</h5>
                                         <h6>@movie.MovieGenre.Name</h6>
                                         </div>
                                 </div>

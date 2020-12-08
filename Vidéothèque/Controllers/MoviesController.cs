@@ -51,27 +51,26 @@ namespace Vidéothèque.Controllers
         }
 
 
-        [Route("movies/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
-        {
-            return Content(year + "/" + month);
-        }
-
-        public ActionResult Details(int id)
-        {
-            var customer = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(cust => cust.Id == id);
-
-            return View(customer);
-        }
-
-        [HttpPost]
         [AllowAnonymous]
-
-        public ActionResult Details(string searchName)
+        public ActionResult Details(int id, string searchName)
         {
-            return RedirectToAction("Index", "Home", new { searchName = searchName });
+            var movie = _context.Movies.Include(m => m.MovieGenre).SingleOrDefault(m => m.Id == id);
 
+
+            var rents = _context.Rents.Include(u=>u.Invoice.User).Where(m => m.Invoice.MovieId == movie.Id).ToList();
+
+            var viewModel = new MovieRentsViewModel()
+            {
+                Movie = movie,
+                Rents = rents
+            };
+
+            if (searchName != null)
+                return RedirectToAction("Index", "Home", new { searchName = searchName });
+            return View(viewModel);
         }
+
+
 
         [Authorize(Roles = RoleName.Admin)]
         public ActionResult Edit(int id)

@@ -1,6 +1,6 @@
 ﻿<div class="sidenav">
     <h5>@Html.ActionLink("HOME", "Index", "Home", null, new { @class = "active" })</h5>
-    <h5>@Html.ActionLink("NEW", "Index", "New")</h5>
+    <h5>@Html.ActionLink("NEW", "New", "Home")</h5>
 
     @if (User.IsInRole("CanManageEverything"))
     {
