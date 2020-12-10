@@ -159,12 +159,11 @@ textarea {
 }
 
 #filter {
-    margin: 10px 0px 0px 40px;
+    margin: 10px 0px 0px 0px;
     padding: 5px;
     background-color: #303643;
     border-radius: 15px;
     height: 35px;
-    position: fixed;
 }
 
 #filter .form-check-label {

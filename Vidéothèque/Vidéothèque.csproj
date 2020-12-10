@@ -18,7 +18,8 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -49,6 +50,21 @@
       <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.1.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -142,17 +158,8 @@
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
@@ -182,16 +189,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\RentController.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
-    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\RentController.cs" />
-    <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\InvoiceDto .cs" />
+    <Compile Include="Dtos\RentDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
-    <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -292,24 +298,67 @@
     <Compile Include="Migrations\202011241520478_AddDurationMovie.Designer.cs">
       <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011250906241_AddRent.cs" />
+    <Compile Include="Migrations\202011250906241_AddRent.Designer.cs">
+      <DependentUpon>202011250906241_AddRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011272041543_Test2.cs" />
+    <Compile Include="Migrations\202011272041543_Test2.Designer.cs">
+      <DependentUpon>202011272041543_Test2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011301119599_RemoveInvoce.cs" />
+    <Compile Include="Migrations\202011301119599_RemoveInvoce.Designer.cs">
+      <DependentUpon>202011301119599_RemoveInvoce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012070823441_AddFieldsInvoceRent.cs" />
+    <Compile Include="Migrations\202012070823441_AddFieldsInvoceRent.Designer.cs">
+      <DependentUpon>202012070823441_AddFieldsInvoceRent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071501580_AddFieldsInvoceRentRevert.cs" />
+    <Compile Include="Migrations\202012071501580_AddFieldsInvoceRentRevert.Designer.cs">
+      <DependentUpon>202012071501580_AddFieldsInvoceRentRevert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071641414_AddFieldsInvoceRent2.cs" />
+    <Compile Include="Migrations\202012071641414_AddFieldsInvoceRent2.Designer.cs">
+      <DependentUpon>202012071641414_AddFieldsInvoceRent2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071646563_AddFieldsInvoceRent3.cs" />
+    <Compile Include="Migrations\202012071646563_AddFieldsInvoceRent3.Designer.cs">
+      <DependentUpon>202012071646563_AddFieldsInvoceRent3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071649310_AddFieldsInvoceRent4.cs" />
+    <Compile Include="Migrations\202012071649310_AddFieldsInvoceRent4.Designer.cs">
+      <DependentUpon>202012071649310_AddFieldsInvoceRent4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071652477_AddFieldsInvoceRent5.cs" />
+    <Compile Include="Migrations\202012071652477_AddFieldsInvoceRent5.Designer.cs">
+      <DependentUpon>202012071652477_AddFieldsInvoceRent5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071710537_updateTest.cs" />
+    <Compile Include="Migrations\202012071710537_updateTest.Designer.cs">
+      <DependentUpon>202012071710537_updateTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012071750441_updateTest2.cs" />
+    <Compile Include="Migrations\202012071750441_updateTest2.Designer.cs">
+      <DependentUpon>202012071750441_updateTest2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\MembershipType.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="ViewModels\AllRentsViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Rent.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieRentsViewModel.cs" />
+    <Compile Include="ViewModels\UserRentsViewModel.cs" />
     <Compile Include="ViewModels\MyRentsViewModel.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-sand.css" />
@@ -426,6 +475,7 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\img\img_facture.png" />
     <Content Include="Content\img\logan_h.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -548,17 +598,18 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
-    <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
     <Content Include="Views\Movies\ReadOlyIndex.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Shared\_Sidenav.cshtml" />
     <Content Include="Views\Rent\Invoices.cshtml" />
     <Content Include="Views\Account\MyRents.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Rent\Index.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Home\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -648,6 +699,39 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011241520478_AddDurationMovie.resx">
       <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011250906241_AddRent.resx">
+      <DependentUpon>202011250906241_AddRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011272041543_Test2.resx">
+      <DependentUpon>202011272041543_Test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011301119599_RemoveInvoce.resx">
+      <DependentUpon>202011301119599_RemoveInvoce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012070823441_AddFieldsInvoceRent.resx">
+      <DependentUpon>202012070823441_AddFieldsInvoceRent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071501580_AddFieldsInvoceRentRevert.resx">
+      <DependentUpon>202012071501580_AddFieldsInvoceRentRevert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071641414_AddFieldsInvoceRent2.resx">
+      <DependentUpon>202012071641414_AddFieldsInvoceRent2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071646563_AddFieldsInvoceRent3.resx">
+      <DependentUpon>202012071646563_AddFieldsInvoceRent3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071649310_AddFieldsInvoceRent4.resx">
+      <DependentUpon>202012071649310_AddFieldsInvoceRent4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071652477_AddFieldsInvoceRent5.resx">
+      <DependentUpon>202012071652477_AddFieldsInvoceRent5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071710537_updateTest.resx">
+      <DependentUpon>202012071710537_updateTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012071750441_updateTest2.resx">
+      <DependentUpon>202012071750441_updateTest2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

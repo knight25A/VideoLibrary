@@ -77,9 +77,9 @@ namespace Vidéothèque.Controllers
 
         public ActionResult New()
         {
-            ViewBag.Message = "Your application New page.";
+            var movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m=>m.Id).Take(5).ToList();
 
-            return View();
+            return View(movies);
         }
 
         public ActionResult About()
