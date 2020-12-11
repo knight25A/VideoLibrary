@@ -53,7 +53,7 @@ namespace Vidéothèque.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                rents = _context.Rents.Include(r => r.Invoice.Movie).Where(s => s.Invoice.Movie.Title.Contains(searchString) || s.Invoice.User.Email.Contains(searchString) || s.Invoice.User.Name.Contains(searchString)).ToList();
+                rents = _context.Rents.Include(r => r.Invoice.Movie).Where(s => s.Invoice.Movie.Title.Contains(searchString) || s.Invoice.User.Email.Contains(searchString) || s.Invoice.User.Name.Contains(searchString) || s.Status.Contains(searchString)).ToList();
             }
             else if (!String.IsNullOrEmpty(searchName))
             {

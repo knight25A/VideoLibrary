@@ -10,17 +10,29 @@
         @Html.AntiForgeryToken()
         @Html.HiddenFor(m => m.Id)
 
-        <img id="cover_movie" width="1000" height="50" src="~/Images/@Model.ImagePoster" />
+        if (Model.ImagePoster == null)
+        {
+            <svg style="padding-left:15px" class="bd-placeholder-img card-img-top" width="1140" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        }
+        else { 
+            <img id="cover_movie" width="1000" height="50" src="~/Images/@Model.ImagePoster" />
 
-
+        }
         <div class="col-md-3 text-center">
 
-            <img id="poster_movie" width="250" height="100" src="~/Images/@Model.ImagePath" />
+            @if (Model.ImagePath == null)
+            {
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            }
+            else
+            {
 
+                <img id="poster_movie" width="250" height="100" src="~/Images/@Model.ImagePath" />
+            }
 
             <label>Quantity : <input id="qt_input_rent" type="number" name="quantity" value="1" min="1" max="@Model.NumberInStock" /></label>
             <button type="submit" class="btn btn-warning">RENT</button>
-        </div>
+         </div>
         <div id="movie_details" class="col-md-9">
             <div class="col-md-4"><h4>@Model.Title</h4></div>
             <div class="col-md-4"><h5>@Model.DurationHours h @Model.DurationMinutes</h5></div>
@@ -38,7 +50,5 @@
                 @Model.Synopsis
             </p>
         </div>
-
-
     }
 </div>

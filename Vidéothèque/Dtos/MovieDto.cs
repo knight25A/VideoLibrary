@@ -33,6 +33,7 @@ namespace Vidéothèque.Dtos
         public int NumberInStock { get; set; }
 
         public string ImagePath { get; set; }
+        public string Director { get; set; }
 
         [Required]
         [Range(0, 10)]
