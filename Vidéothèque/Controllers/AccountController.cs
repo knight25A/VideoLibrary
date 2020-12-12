@@ -60,12 +60,42 @@ namespace Vidéothèque.Controllers
             }
         }
 
-        public ActionResult Index()
+
+        [Authorize(Roles = RoleName.Admin)]
+        public ActionResult Index(string sortOrder, string searchString, string searchName)
         {
-            var customers = _context.Users.ToList();
+
+            List<ApplicationUser> customers = new List<ApplicationUser> { };
+
+            if (sortOrder != null)
+            {
+                if (sortOrder == "Name")
+                    customers = _context.Users.OrderByDescending(u => u.Name).ToList();
+                else if (sortOrder == "Email")
+                    customers = _context.Users.OrderByDescending(u => u.Email).ToList();
+                else if (sortOrder == "Age")
+                    customers = _context.Users.OrderByDescending(u => u.Age).ToList();
+                else
+                    customers = _context.Users.OrderByDescending(u => u.Id).ToList();
+            }
+            else
+                customers = _context.Users.ToList();
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                customers = _context.Users.Where(u => u.Age.Contains(searchString) || u.Email.Contains(searchString) || u.Name.Contains(searchString)).ToList();
+                return View(customers);
+            }
+            else if (!String.IsNullOrEmpty(searchName))
+            {
+                return RedirectToAction("Index", "Home", new { searchName = searchName });
+
+            }
             return View(customers);
         }
 
+        [Authorize(Roles = RoleName.Admin)]
         public ActionResult Details(string identity)
         {
              var user = _context.Users.SingleOrDefault(u => u.Id == identity);
@@ -85,14 +115,7 @@ namespace Vidéothèque.Controllers
             else
                 return RedirectToAction("Index", "Account");
         }
-       
-        [HttpPost]
-        public ActionResult Index(string searchName)
-        {
-
-            return RedirectToAction("Index", "Home", new { searchName = searchName });
-
-        }
+      
 
         public ActionResult MyRents()
         {

@@ -4,11 +4,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Movie.Title</h2>
-<div class="container">
-   @foreach (var rent in Model.Rents)
-   {
-       @rent.Invoice.User.Email
-       <br /><hr />
-   }
-</div>
+<main role="main" class="col-md-10 mx-auto p-5" style="border: solid 1px black;
+                                                    background-color: lightgrey;
+                                                    padding: 85px;
+                                                    margin: 85px;
+                                                    border-radius: 25px">
+    <center><h2 style="padding: 15px;">@Model.Movie.Title</h2></center>
+    <br />
+
+            <table class="table table-hover table-active">
+                <thead>
+                    <tr>
+                        <th scope="col"> Email </th>
+                        <th scope="col"> Name </th>
+                        <th scope="col"> Age </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var rent in Model.Rents)
+                    {
+                        <tr>
+                            <td><h5 class="col-md-2"> @rent.Invoice.User.Email </h5></td>
+                            <td><h5 class="col-md-2">@rent.Invoice.User.Name</h5></td>
+                            <td><h5 class="col-md-2">@rent.Invoice.User.Age </h5></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+</main>

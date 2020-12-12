@@ -85,6 +85,8 @@ namespace Vidéothèque.Controllers.Api
             movieInDb.ImagePoster = movieDto.ImagePath;
             movieInDb.Price = movieDto.Price;
             movieInDb.Actors = movieDto.Actors;
+            movieInDb.Director = movieDto.Director;
+
 
             _context.SaveChanges();
         }

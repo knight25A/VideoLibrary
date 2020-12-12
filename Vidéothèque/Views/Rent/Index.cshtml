@@ -22,14 +22,36 @@
             <input type="submit" value="Search" />
         </p>
     }
+    <div style="    display: flex;
+        align-items: center;
+        margin: 5px 10px 5px 0;
+        padding-left: 250px
+    ">
+
+        @using (Html.BeginForm("Index", "Rent", new { @SearchString = "reserve" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" class="btn btn-primary" title="loaned" value=" Reserved" />
+        }
+        @using (Html.BeginForm("Index", "Rent", new { @SearchString = "return" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" class="btn btn-secondary" title="loaned" value=" Returned" />
+        }
+        @using (Html.BeginForm("Index", "Rent", new { @SearchString = "loan" }))
+        {
+            @Html.AntiForgeryToken()
+            <input type="submit" class="btn btn-success" title="loaned" value=" Loaned" />
+        }
+    </div>
     <table id="rents" class="table table-hover table-active">
         <thead>
             <tr>
-                <th scope="col"> @Html.ActionLink("Title", "Index", "Rent", new { @sortOrder = "Title" }, null)</th>
+                <th  width="20%" scope="col"> @Html.ActionLink("Title", "Index", "Rent", new { @sortOrder = "Title" }, null)</th>
                 <th scope="col"> @Html.ActionLink("User Email", "Index", "Rent", new { @sortOrder = "Email" }, null)</th>
                 <th scope="col">  @Html.ActionLink("User Name", "Index", "Rent", new { @sortOrder = "UserName" }, null)</th>
                 <th scope="col">@Html.ActionLink("Expected Return Date", "Index", "Rent", new { @sortOrder = "ReturnDate" }, null) </th>
-                <th width="50%" scope="col">Status</th>
+                <th width="45%" scope="col">Status</th>
             </tr>
         </thead>
         <tbody>

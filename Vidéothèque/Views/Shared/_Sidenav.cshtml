@@ -1,6 +1,5 @@
 ﻿<div class="sidenav">
     <h5>@Html.ActionLink("HOME", "Index", "Home", null, new { @class = "active" })</h5>
-    <h5>@Html.ActionLink("NEW", "New", "Home")</h5>
 
     @if (User.IsInRole("CanManageEverything"))
     {
@@ -12,6 +11,8 @@
     @if (Request.IsAuthenticated && !User.IsInRole("CanManageEverything"))
     {
         <h5>@Html.ActionLink("MY RENTS", "MyRents", "Account")</h5>
+        <h5>@Html.ActionLink("NEW", "New", "Home")</h5>
+
     }
     <h5>
         <a href="#CategorySubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">

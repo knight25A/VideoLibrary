@@ -35,6 +35,8 @@ namespace Vidéothèque.Models
         [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")] 
         public int NumberInStock { get; set; }
 
+        public string Director { get; set; }
+
         public string ImagePath { get; set; }
 
         public string ImagePoster { get; set; }

@@ -132,37 +132,53 @@ namespace Vidéothèque.Controllers
                     file.SaveAs(path);
                 }
                */
-                if (file.ElementAt(0) != null && file.ElementAt(1)!=null && file.ElementAt(0).ContentLength > 0 && file.ElementAt(1).ContentLength > 0)
+                if (file.ElementAt(0) != null  && file.ElementAt(0).ContentLength > 0)
                 {
 
                     //Use Namespace called :  System.IO  
                     string FileName1 = Path.GetFileNameWithoutExtension(file.ElementAt(0).FileName);
-                    string FileName2 = Path.GetFileNameWithoutExtension(file.ElementAt(1).FileName);
 
                     //To Get File Extension  
                     string FileExtension1 = Path.GetExtension(file.ElementAt(0).FileName);
-                    string FileExtension2 = Path.GetExtension(file.ElementAt(1).FileName);
 
 
                     //Add Current Date To Attached File Name  
                     FileName1 = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName1.Trim() + FileExtension1;
-                    FileName2 = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName2.Trim() + FileExtension2;
 
                     //Get Upload path from Web.Config file AppSettings.  
                     //string UploadPath = ConfigurationManager.AppSettings["ImagePath"].ToString();
                     string path1 = Path.Combine(Server.MapPath("~/Images"), FileName1);
-                    string path2 = Path.Combine(Server.MapPath("~/Images"), FileName2);
 
                     //Its Create complete path to store in server.  
                     movie.ImagePath = FileName1;
-                    movie.ImagePoster = FileName2;
 
                     //To copy and save file into server.  
                     file.ElementAt(0).SaveAs(path1);
+
+                }
+                if (file.ElementAt(1) != null && file.ElementAt(1).ContentLength > 0)
+                {
+
+                    //Use Namespace called :  System.IO  
+                    string FileName2 = Path.GetFileNameWithoutExtension(file.ElementAt(1).FileName);
+
+                    //To Get File Extension  
+                    string FileExtension2 = Path.GetExtension(file.ElementAt(1).FileName);
+
+
+                    //Add Current Date To Attached File Name  
+                    FileName2 = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName2.Trim() + FileExtension2;
+
+                    //Get Upload path from Web.Config file AppSettings.  
+                    string path2 = Path.Combine(Server.MapPath("~/Images"), FileName2);
+
+                    //Its Create complete path to store in server.  
+                    movie.ImagePoster = FileName2;
+
+                    //To copy and save file into server.  
                     file.ElementAt(1).SaveAs(path2);
 
                 }
-
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
             }
@@ -180,6 +196,8 @@ namespace Vidéothèque.Controllers
                 movieInDb.GenreId = movie.GenreId;
                 movieInDb.Synopsis = movie.Synopsis;
                 movieInDb.Actors = movie.Actors;
+                movieInDb.Director = movie.Director;
+
             }
 
             try

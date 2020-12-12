@@ -32,7 +32,7 @@ namespace Vidéothèque.Controllers
 
 
         [System.Web.Http.Authorize(Roles = RoleName.Admin)]
-        public ActionResult Index(string sortOrder, string searchString)
+        public ActionResult Index(string sortOrder, string searchString, string searchName)
         {
             List<Rent> rents = new List<Rent> { };
 
@@ -53,7 +53,12 @@ namespace Vidéothèque.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                rents = _context.Rents.Include(r => r.Invoice.Movie).Where(s => s.Invoice.Movie.Title.Contains(searchString) || s.Invoice.User.Email.Contains(searchString) || s.Invoice.User.Name.Contains(searchString)).ToList();
+                rents = _context.Rents.Include(r => r.Invoice.Movie).Where(s => s.Invoice.Movie.Title.Contains(searchString) || s.Invoice.User.Email.Contains(searchString) || s.Invoice.User.Name.Contains(searchString) || s.Status.Contains(searchString)).ToList();
+            }
+            else if (!String.IsNullOrEmpty(searchName))
+            {
+                return RedirectToAction("Index", "Home", new { searchName = searchName });
+
             }
 
             List<Invoice> invoices = new List<Invoice> { };
@@ -81,6 +86,7 @@ namespace Vidéothèque.Controllers
             return View("Index", viewModel);
         }
 
+        [System.Web.Http.Authorize(Roles = RoleName.Admin)]
         public ActionResult ChangeStatusReturned(int id)
         {
             var rent = _context.Rents.SingleOrDefault(i => i.Id == id);
@@ -94,6 +100,7 @@ namespace Vidéothèque.Controllers
             return RedirectToAction("Index", "Rent");
         }
 
+        [System.Web.Http.Authorize(Roles = RoleName.Admin)]
         public ActionResult ChangeStatusLoaned(int id)
         {
             var rent = _context.Rents.SingleOrDefault(i => i.Id == id);
