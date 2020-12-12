@@ -49,6 +49,12 @@
       <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -182,16 +188,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
-    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\RentController.cs" />
-    <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
-    <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -288,28 +290,36 @@
     <Compile Include="Migrations\202011241030591_UpdateContext.Designer.cs">
       <DependentUpon>202011241030591_UpdateContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011241040085_Test2.cs" />
+    <Compile Include="Migrations\202011241040085_Test2.Designer.cs">
+      <DependentUpon>202011241040085_Test2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202011241520478_AddDurationMovie.cs" />
     <Compile Include="Migrations\202011241520478_AddDurationMovie.Designer.cs">
       <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012090912557_newContext.cs" />
+    <Compile Include="Migrations\202012090912557_newContext.Designer.cs">
+      <DependentUpon>202012090912557_newContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Director.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Invoice.cs" />
-    <Compile Include="Models\MembershipType.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Rent.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\AllRentsViewModel.cs" />
     <Compile Include="ViewModels\InvoiceViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
+    <Compile Include="ViewModels\MovieRentsViewModel.cs" />
     <Compile Include="ViewModels\MyRentsViewModel.cs" />
-    <Compile Include="ViewModels\RandomMovieViewModel.cs" />
+    <Compile Include="ViewModels\UserRentsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-sand.css" />
@@ -426,10 +436,13 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\img\img_facture.png" />
     <Content Include="Content\img\logan_h.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\20201124-flags.png" />
+    <Content Include="Images\20201124-joker_h.jpg" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -559,6 +572,10 @@
     <Content Include="Views\Shared\_Sidenav.cshtml" />
     <Content Include="Views\Rent\Invoices.cshtml" />
     <Content Include="Views\Account\MyRents.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Details.cshtml" />
+    <Content Include="Views\Home\New.cshtml" />
+    <Content Include="Views\Rent\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -646,8 +663,14 @@
     <EmbeddedResource Include="Migrations\202011241030591_UpdateContext.resx">
       <DependentUpon>202011241030591_UpdateContext.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241040085_Test2.resx">
+      <DependentUpon>202011241040085_Test2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202011241520478_AddDurationMovie.resx">
       <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012090912557_newContext.resx">
+      <DependentUpon>202012090912557_newContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

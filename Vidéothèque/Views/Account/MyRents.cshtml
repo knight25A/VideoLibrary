@@ -9,7 +9,7 @@
     @foreach (var movie in Model.Movies)
     {
         <div id="rent_line" class="row">
-            <img class="col-md-1" src="~/Content/img/logan_h.jpg" />
+            <img class="col-md-1" src="~/Images/@movie.ImagePath" />
             <h4 class="col-md-3">@movie.Title</h4>
             <h5 class="col-md-3">@Model.Genres.SingleOrDefault(g=>g.Id==movie.GenreId).Name</h5>
             <h5 class="col-md-2">@movie.ReleaseDate</h5>

@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Vidéothèque",
+    "\\Vidéothèque\\Controllers"
   ],
+  "SelectedNode": "\\Vidéothèque\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }

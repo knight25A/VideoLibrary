@@ -10,12 +10,12 @@
         @Html.AntiForgeryToken()
         @Html.HiddenFor(m => m.Id)
 
-        <img id="cover_movie" width="1000" height="50" src="~/Images/@Model.ImagePoster" />
+        <img id="cover_movie" width="1000" height="50" src="~/Images/@Model.ImagePath" />
 
 
         <div class="col-md-3 text-center">
 
-            <img id="poster_movie" width="250" height="100" src="~/Images/@Model.ImagePath" />
+            <img id="poster_movie" width="250" height="100" src="~/Images/@Model.ImagePoster" />
 
 
             <label>Quantity : <input id="qt_input_rent" type="number" name="quantity" value="1" min="1" max="@Model.NumberInStock" /></label>
@@ -28,10 +28,7 @@
 
             <h5>@Model.MovieGenre.Name</h5> <br />
             <h5>Director: </h5>
-            <h5>Actors: </h5>
-            <p>
-                @Model.Actors
-            </p>
+            <h5>Actors: @Model.Actors</h5>
             <br />
             <h5>Synopsis:</h5>
             <p>
