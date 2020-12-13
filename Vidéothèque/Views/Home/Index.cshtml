@@ -13,8 +13,8 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.ActionLink("Date", "Index", "Home", new { @sortOrder = "Year"}, null)
-                    <i class="fas fa-circle"></i>
+                    @Html.ActionLink("Date ", "Index", "Home", new { @sortOrder = "Year"}, null)
+                    <i class="fa fa-sort"></i>
                 </label>
             </div>
         </div>
@@ -22,8 +22,8 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.ActionLink("Title", "Index", "Home", new { @sortOrder = "Title" }, null)
-                    <i class="fas fa-circle"></i>   
+                    @Html.ActionLink("Title ", "Index", "Home", new { @sortOrder = "Title" }, null)
+                    <i class="fa fa-sort"></i>   
                 </label>
             </div>
         </div>
@@ -31,8 +31,8 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.ActionLink("Price", "Index", "Home", new { @sortOrder = "Price" }, null)
-                    <i class="fas fa-circle"></i>
+                    @Html.ActionLink("Price ", "Index", "Home", new { @sortOrder = "Price" }, null)
+                    <i class="fa fa-sort"></i>
                 </label>
             </div>
         </div>
@@ -40,8 +40,8 @@
         <div class="col-md-2">
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    @Html.ActionLink("Director", "Index", "Home", new { @sortOrder = "Price" }, null)
-                    <i class="fas fa-circle"></i>
+                    @Html.ActionLink("Director ", "Index", "Home", new { @sortOrder = "Director" }, null)
+                    <i class="fa fa-sort"></i>
                 </label>
             </div>
         </div>
@@ -63,7 +63,7 @@
                                     }
                                     else
                                     {
-                                       <img src="~/Images/@movie.ImagePoster" width="265" height= "225" />
+                                       <img src="~/Images/@movie.ImagePath" width="265" height= "225" />
                                     }
                                         <div class="card-body">
                                         <h5 class="card-title">@Html.ActionLink(movie.Title, "Details", "Home", new { id = movie.Id }, null)</h5>

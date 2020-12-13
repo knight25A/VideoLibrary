@@ -1,26 +1,23 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
         @Html.AntiForgeryToken()
-
-<ul class="nav navbar-nav navbar-right">
-    <li>
-       
-    </li>
-    <li>
-        <a href="@Url.Action("Index","Manage")" title="Manage">@User.Identity.GetUserName() <i class="fa fa-user" style="font-size:20px;color:white"></i></a>
-    </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log out <i class="fa fa-sign-out" style="font-size:20px;color:white"></i></a></li>
-</ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="@Url.Action("Index", "Manage")" title="Manage">@User.Identity.GetUserName() <i class="fa fa-user" style="font-size:20px;color:white"></i></a>
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()">Log out <i class="fa fa-sign-out" style="font-size:20px;color:white"></i></a>
+            </li>
+        </ul>
     }
-}
-else
-{
+ }
+ else
+ {
     <ul class="nav navbar-nav navbar-right">
-      
-        <li><a href="@Url.Action("Login","Account")" id="loginLink">Log in <i class="fa fa-sign-in" style="font-size:20px;color:white"></i></a></li>
-        <li><a href="@Url.Action("Register", "Account")" id="registerLink">Register <i class="fa fa-user-plus" style="font-size:20px;color:white"></i></a></li>
+        <li><a href="@Url.Action("Login","Account")" id="loginLink"> Log in <i class="fa fa-sign-in" style="font-size:20px;color:white"></i></a></li>
+        <li><a href="@Url.Action("Register", "Account")" id="registerLink">Register<i class="fa fa-user-plus" style="font-size:20px;color:white"></i></a></li>
     </ul>
-}
+    }

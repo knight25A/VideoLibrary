@@ -7,26 +7,17 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a href="@Url.Action("Index", "Home")" class="navbar-brand"> <i class="fa fa-film" style="font-size:25px;color:white"></i>  Video Library</a>
-
-            <!-- The Search form -->
-            <div style="float:right">
-
+            <a href="@Url.Action(" Index", "Home" )" class="navbar-brand"> <i class="fa fa-film" style="font-size:25px;color:white"></i>  Video Library</a>
+            <div class="search-container">
                 @using (Html.BeginForm())
                 {
-
-                    @Html.TextBox("SearchName")
-                    <input type="submit" value="Search" />
-
+                    @Html.TextBox("SearchName", "", new { placeholder = "Search..." })
+                    <button type="submit"><i class="fa fa-search"></i></button>
                 }
             </div>
         </div>
         <div class="navbar-collapse collapse">
-
-            <div style="position: absolute; padding-left:-55px; float:right;">
-
-                @Html.Partial("_LoginPartial")
-            </div>
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
 </div>
