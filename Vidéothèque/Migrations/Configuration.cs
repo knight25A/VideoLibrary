@@ -9,8 +9,7 @@ namespace Vidéothèque.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            //AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(Vidéothèque.Models.ApplicationDbContext context)

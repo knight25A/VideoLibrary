@@ -471,3 +471,4 @@ C:\Users\tblac\Desktop\test\Vidéothèque\obj\Debug\Vidéothèque.Migrations.Add
 C:\Users\tblac\Desktop\test\Vidéothèque\obj\Debug\Vidéothèque.Migrations.AddFieldsInvoceRent5.resources
 C:\Users\tblac\Desktop\test\Vidéothèque\obj\Debug\Vidéothèque.Migrations.updateTest.resources
 C:\Users\tblac\Desktop\test\Vidéothèque\obj\Debug\Vidéothèque.Migrations.updateTest2.resources
+C:\Users\tblac\Desktop\test\Vidéothèque\obj\Debug\Vidéothèque.Migrations.AddCounterRent.resources

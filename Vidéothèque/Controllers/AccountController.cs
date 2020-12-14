@@ -102,7 +102,7 @@ namespace Vidéothèque.Controllers
 
             if (user != null)
             {
-                var rents = _context.Rents.Include(r => r.Invoice.Movie).Where(r => r.IdUser == user.Id).ToList();
+                var rents = _context.Rents.Include(r => r.Invoice.Movie).Where(r => r.UserId == user.Id).ToList();
                 var viewModel = new UserRentsViewModel
                 {
                    User = user,
@@ -120,7 +120,7 @@ namespace Vidéothèque.Controllers
         public ActionResult MyRents()
         {
             var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
-            var rents = _context.Rents.Where(r => r.IdUser == user.Id).ToList();
+            var rents = _context.Rents.Where(r => r.UserId == user.Id).ToList();
 
             List<Movie> movies = new List<Movie> { };
             foreach(var rent in rents)

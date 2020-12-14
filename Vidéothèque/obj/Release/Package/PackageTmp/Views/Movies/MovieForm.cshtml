@@ -1,0 +1,114 @@
+﻿@model Vidéothèque.ViewModels.MovieFormViewModel
+@{
+    /**/
+
+    ViewBag.Title = "MovieForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container py-5 m-5 p-xl-5" >
+    <div class="row">
+
+        <div class="col-md-10 mx-auto p-5"
+             style="border: solid 1px black;
+                background-color: lightgrey;
+                padding: 85px;
+                margin: 85px;
+                border-radius: 25px">
+            <center><h2 style="padding: 15px;">Movie Form</h2></center>
+
+            @using (Html.BeginForm("Save", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+        <div class="form-group row">
+            <div class="col-sm-6 p-3 m-3">
+                @Html.LabelFor(m => m.Movie.Title)
+                @Html.TextBoxFor(m => m.Movie.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.Title)
+            </div>
+
+            <div class="col-sm-6 p-3 m-3">
+                @Html.LabelFor(m => m.Movie.ReleaseDate)
+                @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
+            </div>
+
+            <div class="col-sm-6 p-3 m-3">
+                @Html.LabelFor(m => m.Movie.GenreId)
+                @Html.DropDownListFor(m => m.Movie.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.GenreId)
+            </div>
+            <div class="col-sm-6 p-3 m-3">
+                @Html.LabelFor(m => m.Movie.Director)
+                @Html.TextBoxFor(m => m.Movie.Director, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.Director)
+            </div>
+        </div>
+        <br />
+        <hr />
+        <div class="form-group row">
+                <div class="col-sm-6 p-3 m-3">
+                    @Html.LabelFor(m => m.Movie.Synopsis)
+                    @Html.TextAreaFor(m => m.Movie.Synopsis, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Movie.Synopsis)
+                </div>
+                <div class="col-sm-6 p-3 m-3">
+                    @Html.LabelFor(m => m.Movie.Actors)
+                    @Html.TextAreaFor(m => m.Movie.Actors, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Movie.Actors)
+                </div>
+        </div>
+            <br />
+        <div class="form-group row">
+
+            <div class="col-sm-6 p-3 m-3">
+
+                @Html.LabelFor(m => m.Movie.DurationHours)
+                @Html.TextBoxFor(m => m.Movie.DurationHours, new { @class = "form-control", @type = "number", @value = "0", @min = "0", @max = "10" })
+                @Html.ValidationMessageFor(m => m.Movie.DurationHours)
+            </div>
+
+            <div class="col-sm-6 p-3 m-3">
+                @Html.LabelFor(m => m.Movie.Price)
+                @Html.TextBoxFor(m => m.Movie.Price, new { @class = "form-control", @type = "number", @step = "0.01", @min = "0.00", @value = "0.00" })
+                @Html.ValidationMessageFor(m => m.Movie.Price)
+            </div>
+
+            <div class="col-sm-6 p-3 m-3">
+                @Html.LabelFor(m => m.Movie.DurationMinutes)
+                @Html.TextBoxFor(m => m.Movie.DurationMinutes, new { @class = "form-control", @type = "number", @value = "0", @min = "0", @max = "59" })
+                @Html.ValidationMessageFor(m => m.Movie.DurationMinutes)
+            </div>
+            <div class="col-sm-6 p-5 m-5">
+                @Html.LabelFor(m => m.Movie.NumberInStock)
+                @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
+            </div>
+
+        </div>
+        <br />
+        <hr />
+        <div class="col-sm-6 p-6 m-6">
+            <label>Cover Photo: </label>
+            <input type="file" name="file" id="file" />
+            <br>
+            <label>Poster Photo: </label>
+            <input type="file" name="file" id="file" />
+            <br>
+        </div>
+        @Html.HiddenFor(m => m.Movie.Id)
+        <!--Check that the request is coming from the Customer Form ONLY! Prevent other requests -->
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-primary btn-lg btn-block"> Save </button>
+        }
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Client side validation, not allowing to reload to server to check the forms -->
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -38,13 +38,13 @@ namespace Vidéothèque.Controllers
                 if (sortOrder == "Year")
                     movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(g => g.ReleaseDate).ToList();
                 else if (sortOrder == "Title")
-                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.Title).ToList();
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(m => m.Title).ToList();
                 else if (sortOrder == "Price")
-                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.Price).ToList();
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(m => m.Price).ToList();
                 else if (sortOrder == "NbRent")
                     movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.NbRent).ToList();
-                else if (sortOrder == "NbRent")
-                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.Id).ToList();
+                else if (sortOrder == "Director")
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(m => m.Director).ToList();
             }
 
             // Filter down if necessary

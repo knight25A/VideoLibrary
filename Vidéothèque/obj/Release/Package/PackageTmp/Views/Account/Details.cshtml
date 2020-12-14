@@ -1,0 +1,49 @@
+﻿@model Vidéothèque.ViewModels.UserRentsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main role="main" class="col-md-10 mx-auto p-5" style="border: solid 1px black;
+                                                    background-color: lightgrey;
+                                                    padding: 85px;
+                                                    margin: 85px;
+                                                    border-radius: 25px">
+    <center><h2 style="padding: 15px;">Customer Rent Details</h2></center>
+    <h4>
+        User: @Model.User.Email
+    </h4>
+    <br />
+    @if (Model.Rents.Count() == 0)
+    {
+        <p>No rents placed by this user</p>
+    }
+    else
+    {
+        <table id="rents" class="table table-hover table-active">
+            <thead>
+                <tr>
+                    <th scope="col">Movie Title </th>
+                    <th scope="col">Rent Quantity </th>
+                    <th scope="col">Rent Status </th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var rent in Model.Rents)
+                {
+
+                <tr>
+                    <td><h5 class="col-md-2"></h5>@rent.Invoice.Movie.Title</td>
+                    <td><h5 class="col-md-2"></h5>@rent.Invoice.Quantity</td>
+                    <td> <h5 class="col-md-2"></h5> @rent.Status </td>
+                </tr>
+                }
+                
+
+            </tbody>
+        </table>
+    }
+    </main>

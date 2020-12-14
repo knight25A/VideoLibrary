@@ -1,0 +1,59 @@
+﻿<div class="sidenav">
+    <h5>@Html.ActionLink("HOME", "Index", "Home", null, new { @class = "active" })</h5>
+
+    @if (User.IsInRole("CanManageEverything"))
+    {
+        <h5>@Html.ActionLink("CUSTOMERS", "Index", "Account")</h5>
+        <h5>@Html.ActionLink("MOVIES", "Index", "Movies")</h5>
+        <h5>@Html.ActionLink("RENTS", "Index", "Rent")</h5>
+
+    }
+    @if (Request.IsAuthenticated && !User.IsInRole("CanManageEverything"))
+    {
+        <h5>@Html.ActionLink("MY RENTS", "MyRents", "Account")</h5>
+        <h5>@Html.ActionLink("NEW", "New", "Home")</h5>
+        <h5>@Html.ActionLink("POPULAR", "Popular", "Home")</h5>
+
+
+    }
+    <h5>
+        <a href="#CategorySubMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            CATEGORY <i class="fa fa-caret-down"></i>
+        </a>
+    </h5>
+    <ul class="collapse list-unstyled" id="CategorySubMenu">
+        <li>@Html.ActionLink("Action", "Index", "Home", new { @searchName = "Action" }, null)</li>
+        <li>@Html.ActionLink("Adventure", "Index", "Home", new { @searchName = "Adventure" }, null)</li>
+        <li>@Html.ActionLink("Biopic", "Index", "Home", new { @searchName = "Biopic" }, null)</li>
+        <li>@Html.ActionLink("Cartoon", "Index", "Home", new { @searchName = "Cartoon" }, null)</li>
+        <li>@Html.ActionLink("Crime", "Index", "Home", new { @searchName = "Crime" }, null)</li>
+        <li>@Html.ActionLink("Disaster", "Index", "Home", new { @searchName = "Disaster" }, null)</li>
+        <li>@Html.ActionLink("Documentary", "Index", "Home", new { @searchName = "Documentary" }, null)</li>
+        <li>@Html.ActionLink("Drama", "Index", "Home", new { @searchName = "Drama" }, null)</li>
+        <li>@Html.ActionLink("Family", "Index", "Home", new { @searchName = "Family" }, null)</li>
+        <li>@Html.ActionLink("Fantasy", "Index", "Home", new { @searchName = "Fantasy" }, null)</li>
+        <li>@Html.ActionLink("Horror", "Index", "Home", new { @searchName = "Horror" }, null)</li>
+        <li>@Html.ActionLink("Musical", "Index", "Home", new { @searchName = "Musical" }, null)</li>
+        <li>@Html.ActionLink("Romance", "Index", "Home", new { @searchName = "Romance" }, null)</li>
+        <li>@Html.ActionLink("Science fiction", "Index", "Home", new { @searchName = "Science fiction" }, null)</li>
+        <li>@Html.ActionLink("Thriller", "Index", "Home", new { @searchName = "Thriller" }, null)</li>
+        <li>@Html.ActionLink("War", "Index", "Home", new { @searchName = "War" }, null)</li>
+        <li>@Html.ActionLink("Western", "Index", "Home", new { @searchName = "Western" }, null)</li>
+
+
+    </ul>
+
+    <div id="menuLeft2">
+        <hr />
+        <h5><i class="fa fa-sliders" style="font-size:20px;color:black"></i> Preferences</h5>
+        <h5><i class="fa fa-cog" style="font-size:20px;color:black"></i> Settings</h5>
+        <h5><a href="@Url.Action("About", "Home")"><i class="fa fa-question-circle" style="font-size:20px;color:black"></i> About us</a></h5>
+        <h5><a href="@Url.Action("Contact", "Home")"><i class="fa fa-envelope" style="font-size:20px;color:black"></i> Contact</a></h5>
+    </div>
+    <div id="social">
+        <span><i class="fab fa-facebook-f" style="font-size:18px;color:black"></i></span>
+        <span><i class="fab fa-twitter" style="font-size:18px;color:black"></i></span>
+        <span><i class="fab fa-instagram" style="font-size:18px;color:black"></i></span>
+        <span><i class="fab fa-linkedin-in" style="font-size:18px;color:black"></i></span>
+    </div>
+</div>

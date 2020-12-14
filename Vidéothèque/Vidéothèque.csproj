@@ -189,158 +189,43 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\Api\RentController.cs" />
     <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\RentController.cs" />
-    <Compile Include="Dtos\InvoiceDto .cs" />
-    <Compile Include="Dtos\RentDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011091023102_firstCommit.cs" />
-    <Compile Include="Migrations\202011091023102_firstCommit.Designer.cs">
-      <DependentUpon>202011091023102_firstCommit.cs</DependentUpon>
+    <Compile Include="Migrations\202012141552527_CreateASPNetUsers.cs" />
+    <Compile Include="Migrations\202012141552527_CreateASPNetUsers.Designer.cs">
+      <DependentUpon>202012141552527_CreateASPNetUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011091106009_firstCommit2.cs" />
-    <Compile Include="Migrations\202011091106009_firstCommit2.Designer.cs">
-      <DependentUpon>202011091106009_firstCommit2.cs</DependentUpon>
+    <Compile Include="Migrations\202012141555253_CreateGenres.cs" />
+    <Compile Include="Migrations\202012141555253_CreateGenres.Designer.cs">
+      <DependentUpon>202012141555253_CreateGenres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011100927533_AddCustomer2.cs" />
-    <Compile Include="Migrations\202011100927533_AddCustomer2.Designer.cs">
-      <DependentUpon>202011100927533_AddCustomer2.cs</DependentUpon>
+    <Compile Include="Migrations\202012141558155_CreateMovies.cs" />
+    <Compile Include="Migrations\202012141558155_CreateMovies.Designer.cs">
+      <DependentUpon>202012141558155_CreateMovies.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011100938006_addIsSubdToCustomer.cs" />
-    <Compile Include="Migrations\202011100938006_addIsSubdToCustomer.Designer.cs">
-      <DependentUpon>202011100938006_addIsSubdToCustomer.cs</DependentUpon>
+    <Compile Include="Migrations\202012141605054_CreateInvoices.cs" />
+    <Compile Include="Migrations\202012141605054_CreateInvoices.Designer.cs">
+      <DependentUpon>202012141605054_CreateInvoices.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011100948231_addMembershipType2.cs" />
-    <Compile Include="Migrations\202011100948231_addMembershipType2.Designer.cs">
-      <DependentUpon>202011100948231_addMembershipType2.cs</DependentUpon>
+    <Compile Include="Migrations\202012141607131_CreateRents.cs" />
+    <Compile Include="Migrations\202012141607131_CreateRents.Designer.cs">
+      <DependentUpon>202012141607131_CreateRents.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011100949207_addMembershipType3.cs" />
-    <Compile Include="Migrations\202011100949207_addMembershipType3.Designer.cs">
-      <DependentUpon>202011100949207_addMembershipType3.cs</DependentUpon>
+    <Compile Include="Migrations\202012141610143_PopulateUsers.cs" />
+    <Compile Include="Migrations\202012141610143_PopulateUsers.Designer.cs">
+      <DependentUpon>202012141610143_PopulateUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011100956167_populateMembershipTypes.cs" />
-    <Compile Include="Migrations\202011100956167_populateMembershipTypes.Designer.cs">
-      <DependentUpon>202011100956167_populateMembershipTypes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101008599_ApplyAnnotationToCustomersNameSurname.cs" />
-    <Compile Include="Migrations\202011101008599_ApplyAnnotationToCustomersNameSurname.Designer.cs">
-      <DependentUpon>202011101008599_ApplyAnnotationToCustomersNameSurname.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101102303_AddNamesToMembershipType.cs" />
-    <Compile Include="Migrations\202011101102303_AddNamesToMembershipType.Designer.cs">
-      <DependentUpon>202011101102303_AddNamesToMembershipType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101103098_AddNamesToMembershipTypeUpdate.cs" />
-    <Compile Include="Migrations\202011101103098_AddNamesToMembershipTypeUpdate.Designer.cs">
-      <DependentUpon>202011101103098_AddNamesToMembershipTypeUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101139570_AddGenreMovies.cs" />
-    <Compile Include="Migrations\202011101139570_AddGenreMovies.Designer.cs">
-      <DependentUpon>202011101139570_AddGenreMovies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101314090_AddReleaseDateMovies.cs" />
-    <Compile Include="Migrations\202011101314090_AddReleaseDateMovies.Designer.cs">
-      <DependentUpon>202011101314090_AddReleaseDateMovies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101315044_AddPriceMovies.cs" />
-    <Compile Include="Migrations\202011101315044_AddPriceMovies.Designer.cs">
-      <DependentUpon>202011101315044_AddPriceMovies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101539311_AddGenre.cs" />
-    <Compile Include="Migrations\202011101539311_AddGenre.Designer.cs">
-      <DependentUpon>202011101539311_AddGenre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101549479_AddGenreToMovie.cs" />
-    <Compile Include="Migrations\202011101549479_AddGenreToMovie.Designer.cs">
-      <DependentUpon>202011101549479_AddGenreToMovie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011101647504_FixGnreBug.cs" />
-    <Compile Include="Migrations\202011101647504_FixGnreBug.Designer.cs">
-      <DependentUpon>202011101647504_FixGnreBug.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011102004351_ChangeName2.cs" />
-    <Compile Include="Migrations\202011102004351_ChangeName2.Designer.cs">
-      <DependentUpon>202011102004351_ChangeName2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011141255535_changeNumberInStockType.cs" />
-    <Compile Include="Migrations\202011141255535_changeNumberInStockType.Designer.cs">
-      <DependentUpon>202011141255535_changeNumberInStockType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011211431401_changeIdentityModels.cs" />
-    <Compile Include="Migrations\202011211431401_changeIdentityModels.Designer.cs">
-      <DependentUpon>202011211431401_changeIdentityModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011231928589_AddMoviePrice.cs" />
-    <Compile Include="Migrations\202011231928589_AddMoviePrice.Designer.cs">
-      <DependentUpon>202011231928589_AddMoviePrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011240836496_PopulateUsers2.cs" />
-    <Compile Include="Migrations\202011240836496_PopulateUsers2.Designer.cs">
-      <DependentUpon>202011240836496_PopulateUsers2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011240924083_addInvoice-Rent.cs" />
-    <Compile Include="Migrations\202011240924083_addInvoice-Rent.Designer.cs">
-      <DependentUpon>202011240924083_addInvoice-Rent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011241030591_UpdateContext.cs" />
-    <Compile Include="Migrations\202011241030591_UpdateContext.Designer.cs">
-      <DependentUpon>202011241030591_UpdateContext.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011241520478_AddDurationMovie.cs" />
-    <Compile Include="Migrations\202011241520478_AddDurationMovie.Designer.cs">
-      <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011250906241_AddRent.cs" />
-    <Compile Include="Migrations\202011250906241_AddRent.Designer.cs">
-      <DependentUpon>202011250906241_AddRent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011272041543_Test2.cs" />
-    <Compile Include="Migrations\202011272041543_Test2.Designer.cs">
-      <DependentUpon>202011272041543_Test2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202011301119599_RemoveInvoce.cs" />
-    <Compile Include="Migrations\202011301119599_RemoveInvoce.Designer.cs">
-      <DependentUpon>202011301119599_RemoveInvoce.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012070823441_AddFieldsInvoceRent.cs" />
-    <Compile Include="Migrations\202012070823441_AddFieldsInvoceRent.Designer.cs">
-      <DependentUpon>202012070823441_AddFieldsInvoceRent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071501580_AddFieldsInvoceRentRevert.cs" />
-    <Compile Include="Migrations\202012071501580_AddFieldsInvoceRentRevert.Designer.cs">
-      <DependentUpon>202012071501580_AddFieldsInvoceRentRevert.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071641414_AddFieldsInvoceRent2.cs" />
-    <Compile Include="Migrations\202012071641414_AddFieldsInvoceRent2.Designer.cs">
-      <DependentUpon>202012071641414_AddFieldsInvoceRent2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071646563_AddFieldsInvoceRent3.cs" />
-    <Compile Include="Migrations\202012071646563_AddFieldsInvoceRent3.Designer.cs">
-      <DependentUpon>202012071646563_AddFieldsInvoceRent3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071649310_AddFieldsInvoceRent4.cs" />
-    <Compile Include="Migrations\202012071649310_AddFieldsInvoceRent4.Designer.cs">
-      <DependentUpon>202012071649310_AddFieldsInvoceRent4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071652477_AddFieldsInvoceRent5.cs" />
-    <Compile Include="Migrations\202012071652477_AddFieldsInvoceRent5.Designer.cs">
-      <DependentUpon>202012071652477_AddFieldsInvoceRent5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071710537_updateTest.cs" />
-    <Compile Include="Migrations\202012071710537_updateTest.Designer.cs">
-      <DependentUpon>202012071710537_updateTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012071750441_updateTest2.cs" />
-    <Compile Include="Migrations\202012071750441_updateTest2.Designer.cs">
-      <DependentUpon>202012071750441_updateTest2.cs</DependentUpon>
+    <Compile Include="Migrations\202012141613397_PopulateMovies.cs" />
+    <Compile Include="Migrations\202012141613397_PopulateMovies.Designer.cs">
+      <DependentUpon>202012141613397_PopulateMovies.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
@@ -610,6 +495,7 @@
     <Content Include="Views\Rent\Index.cshtml" />
     <Content Include="Views\Account\Details.cshtml" />
     <Content Include="Views\Home\New.cshtml" />
+    <Content Include="Views\Home\Popular.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -628,110 +514,26 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011091023102_firstCommit.resx">
-      <DependentUpon>202011091023102_firstCommit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012141552527_CreateASPNetUsers.resx">
+      <DependentUpon>202012141552527_CreateASPNetUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011091106009_firstCommit2.resx">
-      <DependentUpon>202011091106009_firstCommit2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012141555253_CreateGenres.resx">
+      <DependentUpon>202012141555253_CreateGenres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100927533_AddCustomer2.resx">
-      <DependentUpon>202011100927533_AddCustomer2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012141558155_CreateMovies.resx">
+      <DependentUpon>202012141558155_CreateMovies.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100938006_addIsSubdToCustomer.resx">
-      <DependentUpon>202011100938006_addIsSubdToCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012141605054_CreateInvoices.resx">
+      <DependentUpon>202012141605054_CreateInvoices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100948231_addMembershipType2.resx">
-      <DependentUpon>202011100948231_addMembershipType2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012141607131_CreateRents.resx">
+      <DependentUpon>202012141607131_CreateRents.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100949207_addMembershipType3.resx">
-      <DependentUpon>202011100949207_addMembershipType3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012141610143_PopulateUsers.resx">
+      <DependentUpon>202012141610143_PopulateUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011100956167_populateMembershipTypes.resx">
-      <DependentUpon>202011100956167_populateMembershipTypes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101008599_ApplyAnnotationToCustomersNameSurname.resx">
-      <DependentUpon>202011101008599_ApplyAnnotationToCustomersNameSurname.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101102303_AddNamesToMembershipType.resx">
-      <DependentUpon>202011101102303_AddNamesToMembershipType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101103098_AddNamesToMembershipTypeUpdate.resx">
-      <DependentUpon>202011101103098_AddNamesToMembershipTypeUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101139570_AddGenreMovies.resx">
-      <DependentUpon>202011101139570_AddGenreMovies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101314090_AddReleaseDateMovies.resx">
-      <DependentUpon>202011101314090_AddReleaseDateMovies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101315044_AddPriceMovies.resx">
-      <DependentUpon>202011101315044_AddPriceMovies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101539311_AddGenre.resx">
-      <DependentUpon>202011101539311_AddGenre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101549479_AddGenreToMovie.resx">
-      <DependentUpon>202011101549479_AddGenreToMovie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011101647504_FixGnreBug.resx">
-      <DependentUpon>202011101647504_FixGnreBug.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011102004351_ChangeName2.resx">
-      <DependentUpon>202011102004351_ChangeName2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011141255535_changeNumberInStockType.resx">
-      <DependentUpon>202011141255535_changeNumberInStockType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011211431401_changeIdentityModels.resx">
-      <DependentUpon>202011211431401_changeIdentityModels.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011231928589_AddMoviePrice.resx">
-      <DependentUpon>202011231928589_AddMoviePrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011240836496_PopulateUsers2.resx">
-      <DependentUpon>202011240836496_PopulateUsers2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011240924083_addInvoice-Rent.resx">
-      <DependentUpon>202011240924083_addInvoice-Rent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241030591_UpdateContext.resx">
-      <DependentUpon>202011241030591_UpdateContext.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241520478_AddDurationMovie.resx">
-      <DependentUpon>202011241520478_AddDurationMovie.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011250906241_AddRent.resx">
-      <DependentUpon>202011250906241_AddRent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011272041543_Test2.resx">
-      <DependentUpon>202011272041543_Test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011301119599_RemoveInvoce.resx">
-      <DependentUpon>202011301119599_RemoveInvoce.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012070823441_AddFieldsInvoceRent.resx">
-      <DependentUpon>202012070823441_AddFieldsInvoceRent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071501580_AddFieldsInvoceRentRevert.resx">
-      <DependentUpon>202012071501580_AddFieldsInvoceRentRevert.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071641414_AddFieldsInvoceRent2.resx">
-      <DependentUpon>202012071641414_AddFieldsInvoceRent2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071646563_AddFieldsInvoceRent3.resx">
-      <DependentUpon>202012071646563_AddFieldsInvoceRent3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071649310_AddFieldsInvoceRent4.resx">
-      <DependentUpon>202012071649310_AddFieldsInvoceRent4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071652477_AddFieldsInvoceRent5.resx">
-      <DependentUpon>202012071652477_AddFieldsInvoceRent5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071710537_updateTest.resx">
-      <DependentUpon>202012071710537_updateTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012071750441_updateTest2.resx">
-      <DependentUpon>202012071750441_updateTest2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012141613397_PopulateMovies.resx">
+      <DependentUpon>202012141613397_PopulateMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

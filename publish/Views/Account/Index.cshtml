@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Vidéothèque.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<main role="main" class="col-md-10 mx-auto p-5" style="border: solid 1px black;
+                                                    background-color: lightgrey;
+                                                    padding: 85px;
+                                                    margin: 85px;
+                                                    border-radius: 25px">
+    <center><h2 style="padding: 15px;">All Customers</h2></center>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find : @Html.TextBox("searchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table id="rents" class="table table-hover table-active">
+        <thead>
+            <tr>
+                <th scope="col">@Html.ActionLink("User Email", "Index", "Account", new { @sortOrder = "Email" }, null) </th>
+                <th scope="col"> @Html.ActionLink("User Name", "Index", "Account", new { @sortOrder = "Name" }, null) </th>
+                <th scope="col"> @Html.ActionLink("User Age", "Index", "Account", new { @sortOrder = "Age" }, null) </th>
+                <th scope="col">User Details </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td><h5 class="col-md-2"> @user.Email</h5></td>
+                    <td><h5 class="col-md-2"></h5>@user.Name</td>
+                    <td><h5 class="col-md-2"></h5>@user.Age</td>
+                    <td>
+                        <h5 class="col-md-2"></h5> @Html.ActionLink(@user.Email, "Details", "Account", new { @identity = @user.Id }, null)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</main>

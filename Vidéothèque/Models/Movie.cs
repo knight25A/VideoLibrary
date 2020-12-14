@@ -12,7 +12,10 @@ namespace Vidéothèque.Models
         [Required]
         [StringLength(255)]
         public string Title { get; set; }
+
         public string Synopsis { get; set; }
+
+        public string Director { get; set; }
 
         public string Actors { get; set; }
 
@@ -22,9 +25,11 @@ namespace Vidéothèque.Models
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
         //public object Genre { get; internal set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? DateAdded { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Release Date")]
@@ -35,11 +40,9 @@ namespace Vidéothèque.Models
         [RegularExpression("[0-9]+", ErrorMessage = "Entered Stock Number format is not valid. Please chose an Integer. ")] 
         public int NumberInStock { get; set; }
 
-        public string Director { get; set; }
-
         public string ImagePath { get; set; }
-
         public string ImagePoster { get; set; }
+
         [Required]
         [Range(0, 10)]
         public int DurationHours { get; set; }

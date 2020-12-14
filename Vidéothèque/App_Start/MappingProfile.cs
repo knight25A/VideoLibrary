@@ -16,11 +16,9 @@ namespace Vidéothèque.App_Start
             //Domain to DTO
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<Genre, GenreDto>();
-            Mapper.CreateMap<Rent, RentDto>();
 
             //DTO to Domain
             Mapper.CreateMap<MovieDto, Movie>().ForMember(c => c.Id, opt => opt.Ignore());
-            Mapper.CreateMap<RentDto, Rent>().ForMember(c => c.Id, opt => opt.Ignore());
               
         }
     }

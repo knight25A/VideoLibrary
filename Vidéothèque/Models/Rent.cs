@@ -6,7 +6,6 @@ namespace Vidéothèque.Models
 {
     public class Rent
     {
-
         public int Id { get; set; }
 
         public Invoice Invoice { get; set; }
@@ -14,9 +13,8 @@ namespace Vidéothèque.Models
         [Required]
         public int InvoiceId { get; set; }
 
-
         [Required]
-        public string IdUser { get; set; }
+        public string UserId { get; set; }
 
         [Required]
         [Column(TypeName = "datetime2")]

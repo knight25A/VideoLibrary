@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Vidéothèque.Models.Movie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main role="main" class="col-md-10 mx-auto p-5" style="border: solid 1px black;
+                                                    background-color: lightgrey;
+                                                    padding: 85px;
+                                                    margin: 85px;
+                                                    border-radius: 25px">
+    <center><h2 style="padding: 15px;">Movies</h2></center>
+    <button class="btn btn-default btn-lg">@Html.ActionLink("+ Add Movie", "movieForm", "Movies")</button>
+    <br />
+    <table id="movies" class="table table-hover table-active">
+        <thead>
+            <tr>
+                <th width="50%" scope="col">Movie</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Action</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+            $(document).ready(function () {
+                var table = $("#movies").DataTable({
+                    ajax: {
+                        url: "/api/movies",
+                        dataSrc: ""
+
+                    },
+                    columns: [
+                        {
+                            data: "name",
+                            render: function (data, type, movie) {
+                                return "<a href='/movies/details/" + movie.id + " '>" + movie.title + "</a>";
+                            }
+                        },
+                        {
+                            data: "movieGenre.name"
+                        },
+                        {
+                            data: "name",
+                            render: function (data, type, movie) {
+                                return "" + movie.numberInStock + "";
+                            }
+                        },
+                        {
+                            data: "name",
+                            render: function (data, type, movie) {
+                                return "<a class='btn btn-warning' href='/movies/edit/" + movie.id + " '> Edit </a>";
+                            }
+                        },
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn btn-danger js-delete' data-movie-id=" + data + ">Delete</button>";
+                            }
+                        }
+                    ]
+                });
+
+                $("#movies").on("click", ".js-delete", function () {
+                    var button = $(this);
+                    bootbox.confirm("This is the default confirm!", function (result) {
+                        $.ajax({
+                            url: "/api/movies/" + button.attr("data-movie-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                                //console.log("sucess");
+                                //button.parents("tr").remove();
+                                //location.reload(true);
+                            }
+                        });
+                    });
+
+                });
+            });
+        </script>
+    }
+</main>

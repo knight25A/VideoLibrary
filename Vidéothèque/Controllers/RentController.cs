@@ -192,7 +192,7 @@ namespace Vidéothèque.Controllers
             movie.NumberInStock = movie.NumberInStock - invoice.Quantity;
             movie.NbRent = movie.NbRent + invoice.Quantity;
 
-            var rent = new Rent { InvoiceId = id, IdUser = user.Id, DateLocation = invoice.DateLocation, ExpectedReturnDate = invoice.DateLocation.AddMonths(1), Status = "reserved"};
+            var rent = new Rent { InvoiceId = id, UserId = user.Id, DateLocation = invoice.DateLocation, ExpectedReturnDate = invoice.DateLocation.AddMonths(1), Status = "reserved"};
             _context.Rents.Add(rent);
 
             if(user.Rents == null)

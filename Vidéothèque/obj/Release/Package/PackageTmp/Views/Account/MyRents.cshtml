@@ -1,0 +1,20 @@
+﻿@model Vidéothèque.ViewModels.MyRentsViewModel
+@{
+    ViewBag.Title = "MyRents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:#284D7E;">MyRents</h2>
+<div class="container">
+    @foreach (var movie in Model.Movies)
+    {
+        <div id="rent_line" class="row">
+            <img class="col-md-1" src="~/Content/img/logan_h.jpg" />
+            <h4 class="col-md-3">@movie.Title</h4>
+            <h5 class="col-md-3">@Model.Genres.SingleOrDefault(g=>g.Id==movie.GenreId).Name</h5>
+            <h5 class="col-md-2">@movie.ReleaseDate</h5>
+            <h5 class="col-md-2">@movie.DurationHours h @movie.DurationMinutes</h5>
+        </div>
+    }
+</div>
+
