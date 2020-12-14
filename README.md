@@ -22,4 +22,4 @@ Pour tester l'application vous pouvez créer votre compte ou utiliser les deux c
 *Admin*  
 **Email:** admin@test.com **Password:** InaMihali123&  
 *User*  
-**Email:** test@ **Password:**  
+**Email:** test@guest.com **Password:** InaMihali123&  
