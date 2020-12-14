@@ -151,27 +151,38 @@ textarea {
 }
 
 #filter {
-    margin: 10px 0px 0px 0px;
-    padding: 5px;
+    margin: 10px 0px 0px 10px;
+    padding: 5px 5px 0px 50px;
     background-color: #303643;
     border-radius: 15px;
     height: 35px;
+    width: 80%;
+    position: fixed;
+
 }
 
-    #filter .form-check-label {
-        color: black;
-        background-color: rgba(89, 137, 207, 70);
-        border-radius: 15px;
-        padding: 2px 15px 2px 15px;
-    }
+#filter .form-check-label {
+    color: black;
+    background-color: rgba(89, 137, 207, 70);
+    border-radius: 15px;
+    padding: 2px 15px 2px 15px;
+}
 
-    #filter .fa fa-sort {
-        margin-left: 10px;
-        padding-right: 15px;
-    }
+#filter .fa fa-sort {
+    margin-left: 10px;
+    padding-right: 15px;
+}
 
 main {
     margin-top: 70px;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 550px;
+    width: 100%;
+}
+
+.album{
+    width: 100%;    
 }
 
 #loginForm {
@@ -183,24 +194,24 @@ main {
     width: 50%;
 }
 
-    #loginForm input {
-        border-radius: 30px;
-    }
+#loginForm input {
+    border-radius: 30px;
+}
 
-    #loginForm label {
-        font-weight: bold;
-    }
+#loginForm label {
+    font-weight: bold;
+}
 
-    #loginForm a {
-        color: #E1C161;
-        font-style: italic;
-        font-weight: 600;
-    }
+#loginForm a {
+    color: #E1C161;
+    font-style: italic;
+    font-weight: 600;
+}
 
-    #loginForm #btn_connection input {
-        font-weight: bold;
-        background-color: #E1C161;
-    }
+#loginForm #btn_connection input {
+    font-weight: bold;
+    background-color: #E1C161;
+}
 
 #registrationForm {
     margin-top: 5%;
@@ -211,24 +222,24 @@ main {
     width: 60%;
 }
 
-    #registrationForm input {
-        border-radius: 30px;
-    }
+#registrationForm input {
+    border-radius: 30px;
+}
 
-    #registrationForm label {
-        font-weight: bold;
-    }
+#registrationForm label {
+    font-weight: bold;
+}
 
-    #registrationForm a {
-        color: #E1C161;
-        font-style: italic;
-        font-weight: 600;
-    }
+#registrationForm a {
+    color: #E1C161;
+    font-style: italic;
+    font-weight: 600;
+}
 
-    #registrationForm #btn_registration input {
-        font-weight: bold;
-        background-color: #E1C161;
-    }
+#registrationForm #btn_registration input {
+    font-weight: bold;
+    background-color: #E1C161;
+}
 
 #cover_movie {
     width: 100rem;
