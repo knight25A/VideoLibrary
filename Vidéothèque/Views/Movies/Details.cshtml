@@ -4,10 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main role="main" class="col-md-10 mx-auto p-5" style="border: solid 1px black;
+<main role="main" class="col-md-10 mx-auto" style="border: solid 1px black;
                                                     background-color: lightgrey;
-                                                    padding: 85px;
-                                                    margin: 85px;
+                                                    padding: 0px 85px;
+                                                    margin: 0px 85px;
                                                     border-radius: 25px">
     <center><h2 style="padding: 15px;">@Model.Movie.Title</h2></center>
     <br />
@@ -29,7 +29,7 @@
                 @foreach (var rent in Model.Rents)
                 {
                     <tr>
-                        <td><h5 class="col-md-2"> @rent.Invoice.User.Email </h5></td>
+                        <td><h5 class="col-md-2">@rent.Invoice.User.Email </h5></td>
                         <td><h5 class="col-md-2">@rent.Invoice.User.Name</h5></td>
                         <td><h5 class="col-md-2">@rent.Invoice.User.Age </h5></td>
                     </tr>

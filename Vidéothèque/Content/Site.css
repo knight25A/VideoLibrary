@@ -174,8 +174,7 @@ textarea {
 
 main {
     margin-top: 40px;
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow: auto;
     height: 550px;
     width: 100%;
 }
