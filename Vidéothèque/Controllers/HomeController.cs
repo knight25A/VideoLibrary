@@ -36,11 +36,15 @@ namespace Vidéothèque.Controllers
             if (sortOrder != null)
             {
                 if (sortOrder == "Year")
-                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(g => g.ReleaseDate).ToList();
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(g => g.ReleaseDate).ToList();
                 else if (sortOrder == "Title")
-                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(m => m.Title).ToList();
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.Title).ToList();
                 else if (sortOrder == "Price")
-                    movies = _context.Movies.Include(m => m.MovieGenre).OrderBy(m => m.Price).ToList();
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.Price).ToList();
+                else if (sortOrder == "NbRent")
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.NbRent).ToList();
+                else if (sortOrder == "NbRent")
+                    movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.Id).ToList();
             }
 
             // Filter down if necessary
@@ -77,7 +81,13 @@ namespace Vidéothèque.Controllers
 
         public ActionResult New()
         {
-            var movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m=>m.Id).Take(5).ToList();
+            var movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m=>m.Id).Take(10).ToList();
+
+            return View(movies);
+        }
+        public ActionResult Popular()
+        {
+            var movies = _context.Movies.Include(m => m.MovieGenre).OrderByDescending(m => m.NbRent).Take(10).ToList();
 
             return View(movies);
         }

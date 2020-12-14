@@ -109,29 +109,29 @@ namespace Vidéothèque.Controllers
 
             if (movie.Id == 0) //the customer does not exist on the DB which means it's a new Customer
             {
+                movie.NbRent = 0;
+                /* if (file != null && file.ContentLength > 0)
+                 {
+                     //Use Namespace called :  System.IO  
+                     string FileName = Path.GetFileNameWithoutExtension(file.FileName);
 
-               /* if (file != null && file.ContentLength > 0)
-                {
-                    //Use Namespace called :  System.IO  
-                    string FileName = Path.GetFileNameWithoutExtension(file.FileName);
+                     //To Get File Extension  
+                     string FileExtension = Path.GetExtension(file.FileName);
 
-                    //To Get File Extension  
-                    string FileExtension = Path.GetExtension(file.FileName);
+                     //Add Current Date To Attached File Name  
+                     FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
 
-                    //Add Current Date To Attached File Name  
-                    FileName = DateTime.Now.ToString("yyyyMMdd") + "-" + FileName.Trim() + FileExtension;
+                     //Get Upload path from Web.Config file AppSettings.  
+                     //string UploadPath = ConfigurationManager.AppSettings["ImagePath"].ToString();
+                     string path = Path.Combine(Server.MapPath("~/Images"), FileName);
 
-                    //Get Upload path from Web.Config file AppSettings.  
-                    //string UploadPath = ConfigurationManager.AppSettings["ImagePath"].ToString();
-                    string path = Path.Combine(Server.MapPath("~/Images"), FileName);
+                     //Its Create complete path to store in server.  
+                     movie.ImagePath = FileName;
 
-                    //Its Create complete path to store in server.  
-                    movie.ImagePath = FileName;
-
-                    //To copy and save file into server.  
-                    file.SaveAs(path);
-                }
-               */
+                     //To copy and save file into server.  
+                     file.SaveAs(path);
+                 }
+                */
                 if (file.ElementAt(0) != null  && file.ElementAt(0).ContentLength > 0)
                 {
 

@@ -89,12 +89,19 @@ namespace Vidéothèque.Controllers
         [System.Web.Http.Authorize(Roles = RoleName.Admin)]
         public ActionResult ChangeStatusReturned(int id)
         {
-            var rent = _context.Rents.SingleOrDefault(i => i.Id == id);
-            if (rent == null)
+            var rent = _context.Rents.Include(r => r.Invoice).SingleOrDefault(i => i.Id == id);
+            if (rent != null)
             {
-                return HttpNotFound();
+                var movie = _context.Movies.SingleOrDefault(i => i.Id == rent.Invoice.MovieId);
+                if (rent == null)
+                {
+                    return HttpNotFound();
+                }
+                movie.NumberInStock = movie.NumberInStock + rent.Invoice.Quantity;
+                rent.Status = "returned";
+
             }
-            rent.Status = "returned";
+
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Rent");
@@ -103,9 +110,8 @@ namespace Vidéothèque.Controllers
         [System.Web.Http.Authorize(Roles = RoleName.Admin)]
         public ActionResult ChangeStatusLoaned(int id)
         {
-            var rent = _context.Rents.SingleOrDefault(i => i.Id == id);
-
             
+            var rent = _context.Rents.SingleOrDefault(i => i.Id == id);
             if (rent == null)
             {
                 return HttpNotFound();
@@ -184,6 +190,7 @@ namespace Vidéothèque.Controllers
             var movie = _context.Movies.SingleOrDefault(m => m.Id == invoice.MovieId);
 
             movie.NumberInStock = movie.NumberInStock - invoice.Quantity;
+            movie.NbRent = movie.NbRent + invoice.Quantity;
 
             var rent = new Rent { InvoiceId = id, IdUser = user.Id, DateLocation = invoice.DateLocation, ExpectedReturnDate = invoice.DateLocation.AddMonths(1), Status = "reserved"};
             _context.Rents.Add(rent);

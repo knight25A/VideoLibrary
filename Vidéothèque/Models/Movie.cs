@@ -51,5 +51,7 @@ namespace Vidéothèque.Models
         [Display(Name = "Price")]
         public float Price { get; set; }
 
+        public int NbRent { get; set; }
+
     }
 }
